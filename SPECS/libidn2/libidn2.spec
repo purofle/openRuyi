@@ -20,7 +20,7 @@ Source2:        https://josefsson.org/key-20190320.txt#/%{name}.keyring
 BuildRequires:  libunistring-devel
 BuildRequires:  pkgconfig
 BuildSystem:    autotools
-
+BuildOption(conf): --disable-static
 %description
 An implementation of the IDNA2008 specifications (RFCs 5890, 5891, 5892, 5893)
 
