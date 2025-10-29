@@ -79,7 +79,6 @@ BuildRequires:  texinfo
 BuildRequires:  python3
 BuildRequires:  systemd-rpm-macros
 BuildRequires:  systemtap-sdt-devel
-BuildRequires:  sysuser-tools
 BuildRequires:  xz
 %if 0%{?with_gcc:1}
 BuildRequires:  gcc%{with_gcc}
@@ -172,7 +171,7 @@ License:        GPL-2.0-or-later
 Provides:       glibc:/usr/sbin/nscd
 Requires:       glibc = %{version}
 Obsoletes:      unscd <= 0.48
-%{?sysusers_requires}
+Requires(pre):  systemd-sysusers
 %{?systemd_requires}
 
 %description -n nscd
@@ -322,9 +321,7 @@ cd cc-base
 %make_build
 cd ..
 
-
-# sysusers.d
-%sysusers_generate_pre %{SOURCE22} nscd nscd.conf
+install -D %{SOURCE22} %{buildroot}%{_sysusersdir}/nscd.conf
 
 %check
 %if %{build_testsuite}
@@ -548,24 +545,17 @@ end
 %post gconv-modules-extra -p %{_sbindir}/iconvconfig
 %postun gconv-modules-extra -p %{_sbindir}/iconvconfig
 
-%pre -n nscd -f nscd.pre
-%service_add_pre nscd.service
+%pre -n nscd
+%sysusers_create_package nscd %{SOURCE22}
 
 %preun -n nscd
-%service_del_preun nscd.service
+%systemd_preun nscd.service
 
 %post -n nscd
-%service_add_post nscd.service
-%tmpfiles_create /usr/lib/tmpfiles.d/nscd.conf
-# Previously we had nscd.socket, remove it
-test -x /usr/bin/systemctl && /usr/bin/systemctl stop nscd.socket 2>/dev/null || :
-test -x /usr/bin/systemctl && /usr/bin/systemctl disable nscd.socket 2>/dev/null  || :
-# Hard removal in case the above did not work
-rm -f /etc/systemd/system/sockets.target.wants/nscd.socket
-exit 0
+%systemd_post nscd.service
 
 %postun -n nscd
-%service_del_postun nscd.service
+%systemd_postun nscd.service
 exit 0
 
 %files
