@@ -79,12 +79,12 @@ rm -rf %{buildroot}%{_datadir}/et/
 
 %if %{with systemd}
 %post
-%systemd_post krb5kdc.service kadmind.service kpropd.service
+%systemd_post kadmind.service kpropd.service
 /sbin/ldconfig
 %preun
-%systemd_preun krb5kdc.service kadmind.service kpropd.service
+%systemd_preun kadmind.service kpropd.service
 %postun
-%systemd_postun_with_restart krb5kdc.service kadmind.service kpropd.service
+%systemd_postun_with_restart kadmind.service kpropd.service
 /sbin/ldconfig
 %else
 %post -p /sbin/ldconfig
