@@ -38,7 +38,6 @@ BuildRequires:  tcl-devel
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  unzip
 
-Requires:       %{name}-devel = %{version}-%{release}
 Provides:       %{name}3 = %{version}-%{release}
 
 %description
