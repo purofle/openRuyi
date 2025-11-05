@@ -8,6 +8,9 @@
 %ifarch riscv64
 %global archdir riscv
 %endif
+%ifarch x86_64
+%global archdir x86_64
+%endif
 
 Name:           linux-headers
 Version:        6.17.5
