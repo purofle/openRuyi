@@ -27,7 +27,7 @@ BuildOption(conf): --localstatedir=%{_localstatedir}
 BuildOption(build): -C src
 BuildOption(install): -C src
 
-BuildRequires:  autoconf bison cyrus-sasl-devel keyutils-devel
+BuildRequires:  autoconf bison keyutils-devel
 BuildRequires:  pam-devel pkgconfig pkgconfig(com_err) pkgconfig(libselinux)
 BuildRequires:  pkgconfig(libssl) pkgconfig(libverto) pkgconfig(lmdb)
 BuildRequires:  pkgconfig(ss)
