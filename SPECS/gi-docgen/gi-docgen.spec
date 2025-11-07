@@ -5,6 +5,7 @@
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
+%global srcname gi_docgen
 Name:           gi-docgen
 Version:        2025.4
 Release:        %autorelease
@@ -12,7 +13,7 @@ Summary:        Documentation tool for GObject-based libraries
 License:        (Apache-2.0 OR GPL-3.0-or-later) AND CC0-1.0 AND MIT AND OFL-1.1
 URL:            https://gitlab.gnome.org/GNOME/gi-docgen
 #!RemoteAsset
-Source0:        %{url}/-/archive/%{version}/%{name}-%{version}.tar.bz2
+Source0:        https://files.pythonhosted.org/packages/source/g/%{srcname}/%{srcname}-%{version}.tar.gz
 BuildSystem:    pyproject
 
 BuildOption(install):  gidocgen
