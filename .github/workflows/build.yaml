@@ -1,0 +1,113 @@
+# SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
+# SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+#
+# SPDX-License-Identifier: MulanPSL-2.0
+
+name: build test
+
+permissions:
+  contents: read
+  pull-requests: read
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, closed]
+    paths:
+     - 'SPECS/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: setup osc repo
+      run: |
+        echo "deb http://download.opensuse.org/repositories/openSUSE:/Tools/xUbuntu_24.04/ /" | sudo tee /etc/apt/sources.list.d/obs.list
+        wget -qO - http://download.opensuse.org/repositories/openSUSE:/Tools/xUbuntu_24.04/Release.key | sudo apt-key add -
+    - name: install tools
+      run:  sudo apt update && sudo apt install osc libwww-perl -y
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - uses: actions/github-script@v7
+      id: changed_files
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        debug: true
+        script: |
+          const pr_number = context.payload.pull_request.number;
+          const { data: files}  = await github.rest.pulls.listFiles({owner: context.repo.owner, repo: context.repo.repo, pull_number: pr_number,
+          });
+          const targetDir = "SPECS/";
+          const filtered = files
+            .map(f => f.filename)
+            .filter(name => name.startsWith(targetDir));
+          console.log("Filtered files:", filtered);
+          core.setOutput("changed_files", filtered.join("\n"));
+          const dirs = filtered.map(f => f.split("/")[1]).filter(Boolean);
+          const uniqueDirs = [...new Set(dirs)];
+          console.log("change packages:", uniqueDirs);
+          core.setOutput("packages", uniqueDirs.join("\n"));
+
+    - name: setup osc setting
+      run: |
+        set -x
+        mkdir -p ~/.config/osc
+        cat > ~/.config/osc/oscrc <<EOF
+        [general]
+        apiurl = https://gabriel.oerv.ac.cn
+        [https://gabriel.oerv.ac.cn]
+        pass = ${{ secrets.BOT }}
+        user = a-bot
+        credentials_mgr_class=osc.credentials.PlaintextConfigFileCredentialsManager
+        EOF
+    - name: disbale build
+      if: github.event.action == 'closed'
+      run: |
+        set -x
+        PROJECT="home:a-bot:PR:${{ github.event.pull_request.number }}"
+        osc api -X PUT /source/$PROJECT/_meta -d "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+        <project name=\"$PROJECT\">
+        <title>test PR ${{ github.event.pull_request.number }}</title>
+        <description>${{ github.event.pull_request.title }}</description>
+        <person userid=\"z572\" role=\"maintainer\">
+        </person>
+        <person userid=\"a-bot\" role=\"maintainer\">
+        </person>
+        <build>
+          <disable/>
+        </build>
+        <repository name=\"x86_64\">
+             <path project=\"OpenRuyi:Factory:Bootstrap\" repository=\"x86_64\">
+             </path>
+             <arch>x86_64</arch>
+        </repository>
+        </project>"
+    - name: run osc
+      if: github.event.action != 'closed'
+      run: |
+        set -x
+        PROJECT="home:a-bot:PR:${{ github.event.pull_request.number }}"
+        osc api -X PUT /source/$PROJECT/_meta -d "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+        <project name=\"$PROJECT\">
+        <title>test PR ${{ github.event.pull_request.number }}</title>
+        <description>${{ github.event.pull_request.title }}</description>
+        <person userid=\"z572\" role=\"maintainer\">
+        </person>
+        <person userid=\"a-bot\" role=\"maintainer\">
+        </person>
+        <repository name=\"x86_64\">
+             <path project=\"OpenRuyi:Factory:Bootstrap\" repository=\"x86_64\">
+             </path>
+             <arch>x86_64</arch>
+        </repository>
+        </project>"
+        osc co $PROJECT || mkdir -p $PROJECT
+        cd $PROJECT
+        while read -r pkg; do
+          echo -e "create $pkg"
+          if [ ! -d "$pkg" ]; then
+            (osc mkpac "$pkg")
+          fi
+          (cd "$pkg" && (find . -mindepth 1 -maxdepth 1 ! -name '.osc' -exec rm -rf {} +) && osc addremove && cp ${{ github.workspace }}/SPECS/$pkg/* $(pwd) && ls -lah && osc da && osc add * && osc ci -m '${{ github.event.pull_request.base.sha }}')
+        done <<< "${{ steps.changed_files.outputs.packages }}"
