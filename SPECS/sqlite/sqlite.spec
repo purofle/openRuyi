@@ -179,13 +179,13 @@ install -D -m0755 sqldiff $RPM_BUILD_ROOT/%{_bindir}/sqldiff
 %{_bindir}/sqlite3
 %{_bindir}/sqldiff
 %{_mandir}/man?/*
+%{_libdir}/*.so.%{version}
 
 %files devel
 %doc README.md
 %{_includedir}/*.h
 %{_libdir}/*.so
 %{_libdir}/*.so.0
-%{_libdir}/*.so.%{version}
 %{_libdir}/pkgconfig/*.pc
 
 %files doc
