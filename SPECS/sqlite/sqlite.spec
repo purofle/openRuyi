@@ -175,6 +175,8 @@ install -D -m0755 sqlite3_analyzer $RPM_BUILD_ROOT/%{_bindir}/sqlite3_analyzer
 # Install sqldiff
 install -D -m0755 sqldiff $RPM_BUILD_ROOT/%{_bindir}/sqldiff
 
+%ldconfig_scriptlets
+
 %files
 %{_bindir}/sqlite3
 %{_bindir}/sqldiff
