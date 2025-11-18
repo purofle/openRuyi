@@ -49,12 +49,14 @@ applications with nettle.
 %{_bindir}/pkcs1-conv
 %{_bindir}/sexp-conv
 %{_bindir}/nettle-hash
+%{_libdir}/libnettle.so*
+%{_libdir}/libhogweed.so*
 
 %files devel
 %doc descore.README nettle.html nettle.pdf
 %{_includedir}/nettle
-%{_libdir}/libnettle.so*
-%{_libdir}/libhogweed.so*
+%{_libdir}/libnettle.so
+%{_libdir}/libhogweed.so
 %{_libdir}/pkgconfig/hogweed.pc
 %{_libdir}/pkgconfig/nettle.pc
 
