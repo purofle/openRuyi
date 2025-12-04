@@ -18,6 +18,9 @@
 # this script calls all scripts in /usr/lib/rpm/brp-openruyi.d
 %__os_install_post  \
 	/usr/lib/rpm/brp-compress \
+    %{!?__debug_package:\
+    %{?__brp_strip} \
+    } \
     %{?__brp_remove_la_files} \
 	/usr/lib/rpm/brp-openruyi \
 %{nil}
