@@ -7,7 +7,7 @@
 %global srcname filelock
 
 Name:           python-%{srcname}
-Version:        3.16.1
+Version:        3.20.0
 Release:        %autorelease
 Summary:        Platform independent file lock
 License:        Unlicense
