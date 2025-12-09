@@ -20,6 +20,11 @@ Patch1: 0001-fips-enable-aes-self-tests-only-on-x86-and-aarch64.patch
 Patch2: 0002-build-add-riscv64-support.patch
 Patch3: 0003-sha1_mb-Add-missing-ISAL_-prefixes-to-base-aliases.patch
 
+# https://github.com/intel/isa-l_crypto/pull/166
+Patch11: 0001-build-add-riscv64-vector-build-check.patch
+Patch12: 0002-multibinary-add-run-time-cpu-feature-detect-for-risc.patch
+Patch13: 0003-mh_sha256-add-an-mh_sha256-assembly-implementation-w.patch
+
 BuildSystem:    autotools
 
 BuildOption(conf): --disable-static
