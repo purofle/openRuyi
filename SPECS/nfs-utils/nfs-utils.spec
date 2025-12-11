@@ -35,12 +35,26 @@ BuildOption(conf):  --disable-sbin-override
 BuildOption(conf):  --with-pluginpath=%{_libdir}/libnfsidmap
 BuildOption(conf):  --enable-mountconfig
 
-BuildRequires:  e2fsprogs gcc-c++ libtool pkgconfig glibc-devel rpcgen
-BuildRequires:  pkgconfig(kdb) pkgconfig(krb5) pkgconfig(libcap) pkgconfig(libevent)
-BuildRequires:  pkgconfig(libkeyutils) pkgconfig(libnl-3.0) pkgconfig(libtirpc)
-BuildRequires:  pkgconfig(libxml-2.0) pkgconfig(mount) pkgconfig(readline)
-BuildRequires:  pkgconfig(sqlite3) pkgconfig(devmapper)
-BuildRequires:  autoconf automake
+BuildRequires:  e2fsprogs
+BuildRequires:  gcc-c++
+BuildRequires:  libtool
+BuildRequires:  pkgconfig
+BuildRequires:  glibc-devel
+BuildRequires:  rpcgen
+BuildRequires:  pkgconfig(kdb)
+BuildRequires:  pkgconfig(krb5)
+BuildRequires:  pkgconfig(libcap)
+BuildRequires:  pkgconfig(libevent)
+BuildRequires:  pkgconfig(libkeyutils)
+BuildRequires:  pkgconfig(libnl-3.0)
+BuildRequires:  pkgconfig(libtirpc)
+BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(mount)
+BuildRequires:  pkgconfig(readline)
+BuildRequires:  pkgconfig(sqlite3)
+BuildRequires:  pkgconfig(devmapper)
+BuildRequires:  autoconf
+BuildRequires:  automake
 %{?systemd_ordering}
 
 %description
@@ -49,7 +63,9 @@ the NFS kernel server utilities.
 
 %package     -n nfs-client
 Summary:        Support Utilities for NFS Client
-Requires:       keyutils netcfg rpcbind system-user-nobody
+Requires:       keyutils
+Requires:       netcfg
+Requires:       rpcbind
 Requires(pre):  systemd-sysusers
 
 %description -n nfs-client
@@ -57,7 +73,9 @@ This package contains common NFS utilities which are needed for an NFS client.
 
 %package     -n nfs-kernel-server
 Summary:        Support Utilities for Kernel NFS Server
-Requires:       netcfg nfs-client = %{version} rpcbind
+Requires:       netcfg
+Requires:       nfs-client = %{version}
+Requires:       rpcbind
 Requires:       (kmod(nfsd.ko) if kernel)
 Provides:       nfs-utils = %{version}
 
