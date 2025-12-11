@@ -26,8 +26,8 @@ Requires:       udev
 Requires:       coreutils
 Requires:       util-linux
 Requires:       grep
-Requires:       /bin/sed
-Requires:       /sbin/modprobe
+Requires:       /usr/bin/sed
+Requires:       /usr/sbin/modprobe
 
 %description
 This package detects other OSes available on a system and outputs the results
