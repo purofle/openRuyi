@@ -35,6 +35,7 @@ Name:           gcc%{gccsuffix}
 %endif
 %define quadmath_arch %ix86 x86_64 ia64 ppc64le
 %define libgccjit_sover 0
+%define build_jit 0
 
 URL:            http://gcc.gnu.org/
 Version:        %{gcc_version}
@@ -633,9 +634,11 @@ fi
 %doc %{_mandir}/man1/gdc.1.gz
 %endif
 
+%if %{build_jit}
 %files -n libgccjit%{gccsuffix}-devel
 %defattr(-,root,root)
 # empty - only for the dependency
+%endif
 
 %if %{gcc_version} >= 14
 %ifarch %quadmath_arch
