@@ -65,6 +65,9 @@ rm -f %{buildroot}/%{_libdir}/libulockmgr.a
 rm -rf example/.deps example/Makefile.am example/Makefile.in
 rm -rf doc/Makefile.am doc/Makefile.in doc/Makefile
 
+%check
+# No tests here.
+
 %files
 %license COPYING*
 %doc AUTHORS ChangeLog NEWS README* example doc
