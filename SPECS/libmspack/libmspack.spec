@@ -20,6 +20,7 @@ BuildOption(conf):  --disable-static
 
 BuildOption(build):  CFLAGS="%{optflags} -fno-strict-aliasing" -C libmspack
 BuildOption(install):  -C libmspack
+BuildOption(check):  -C libmspack
 
 BuildRequires:  doxygen
 BuildRequires:  gcc
