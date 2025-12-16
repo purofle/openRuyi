@@ -19,6 +19,7 @@ BuildOption(conf):  --disable-silent-rules
 BuildOption(conf):  --enable-shared
 BuildOption(conf):  --disable-docker-tests
 BuildOption(conf):  --disable-static
+BuildOption(check):  -C tests
 
 BuildRequires:  coreutils
 BuildRequires:  findutils
