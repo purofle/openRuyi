@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: laokz <zhangkai@iscas.ac.cn>
-# SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -16,8 +16,8 @@ URL:            https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutil
 Source:         https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/%{name}-%{version}.tar.gz
 BuildSystem:    autotools
 
-BuildOption(build): NO_ARLIB=1 CFLAGS="%{optflags}"
-BuildOption(install): NO_ARLIB=1 DESTDIR=%{buildroot} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=%{_libdir} USRLIBDIR=%{_libdir}
+BuildOption(build):  NO_ARLIB=1 CFLAGS="%{optflags}"
+BuildOption(install):  NO_ARLIB=1 DESTDIR=%{buildroot} BINDIR=%{_bindir} SBINDIR=%{_sbindir} LIBDIR=%{_libdir} USRLIBDIR=%{_libdir}
 
 BuildRequires:  gcc-c++
 BuildRequires:  pkgconfig
@@ -26,11 +26,11 @@ BuildRequires:  pkgconfig
 Utilities to control the kernel key management facility.
 This package contains the command-line tools and runtime libraries.
 
-%package     devel
+%package        devel
 Requires:       %{name} = %{version}-%{release}
 Summary:        Development package for building linux key management utilities
 
-%description  devel
+%description    devel
 This package provides headers and libraries for building key utilities.
 
 # No configure
