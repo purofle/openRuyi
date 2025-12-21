@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
-# SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -20,13 +20,16 @@ BuildRequires:  automake
 BuildRequires:  gcc
 BuildRequires:  gzip
 BuildRequires:  make
-BuildRequires:  pcre2-devel
+BuildRequires:  pkgconfig(libpcre2-8)
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(jansson)
 BuildRequires:  pkgconfig(libseccomp)
 BuildRequires:  pkgconfig(yaml-0.1)
-Requires(post): update-alternatives
-Requires(preun):update-alternatives
+# for tests
+BuildRequires:  python3
+
+Requires(post):  update-alternatives
+Requires(preun):  update-alternatives
 
 %description
 Universal ctags, a maintained fork from Darren Hieberts project, generates tag
