@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -12,16 +13,18 @@ Release:        %autorelease
 License:        MIT
 URL:            https://github.com/pyparsing/pyparsing
 Summary:        Python parsing class library
-Provides:       python3-%{srcname}
-%python_provide python3-%{srcname}
 #!RemoteAsset
 Source0:        https://files.pythonhosted.org/packages/source/p/%{srcname}/%{srcname}-%{version}.tar.gz
-
+BuildSystem:    pyproject
 BuildArch:      noarch
 
-BuildRequires:  python3-devel
-BuildSystem:    pyproject
-BuildOption(install): -l %{srcname} +auto
+BuildOption(install):  -l %{srcname} +auto
+
+BuildRequires:  pkgconfig(python3)
+
+Provides:       python3-%{srcname}
+%python_provide python3-%{srcname}
+
 %description
 The pyparsing module is an alternative approach to creating and
 executing simple grammars, vs. the traditional lex/yacc approach, or the use
