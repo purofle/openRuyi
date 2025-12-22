@@ -19,8 +19,12 @@ BuildSystem:    pyproject
 BuildArch:      noarch
 
 BuildOption(install):  -l %{srcname} +auto
+# skip the part of the tests,as we have no railroad yet.
+BuildOption(check):  -e pyparsing.diagram
 
 BuildRequires:  pkgconfig(python3)
+BuildRequires:  python3-pip
+BuildRequires:  python3-flit-core
 
 Provides:       python3-%{srcname}
 %python_provide python3-%{srcname}
