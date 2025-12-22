@@ -44,7 +44,6 @@ BuildOption(conf): --with-udev
 BuildOption(conf): --with-selinux
 BuildOption(conf): --without-slang
 BuildOption(conf): --disable-makeinstall-chown
-BuildOption(conf): --disable-kill
 BuildOption(conf): --enable-nologin
 BuildOption(conf): --disable-logger
 
@@ -196,6 +195,7 @@ install -Dm644 %{SOURCE20} %{buildroot}%{_udevrulesdir}/60-rfkill.rules
 %{_bindir}/hexdump
 %{_bindir}/irqtop
 %{_bindir}/isosize
+%{_bindir}/kill
 %{_bindir}/last
 %{_bindir}/lastb
 %{_bindir}/lastlog2
