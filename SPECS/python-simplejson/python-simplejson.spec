@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: laokz <zhangkai@iscas.ac.cn>
+# SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -15,19 +16,21 @@ License:        AFL-2.1 OR MIT
 URL:            https://simplejson.readthedocs.io/en/latest
 #!RemoteAsset
 Source0:        https://files.pythonhosted.org/packages/source/s/%{srcname}/%{srcname}-%{version}.tar.gz
+BuildSystem:    pyproject
+
+BuildOption(install):  -l %{srcname}
+
+BuildRequires:  pkgconfig(python3)
+
 Provides:       python3-%{srcname}
 %python_provide python3-%{srcname}
-
-BuildRequires:  python3-devel
-BuildSystem:    pyproject
-BuildOption(install):  -l %{srcname}
 
 %description
 JSON (JavaScript Object Notation) is a subset of JavaScript
 syntax (ECMA-262 3rd edition) used as a lightweight data interchange
 format.
 
-%package -n python3-%{srcname}
+%package     -n python3-%{srcname}
 Summary:        Json library for Python
 
 %description -n python3-%{srcname}
