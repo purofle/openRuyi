@@ -30,6 +30,7 @@ BuildRequires:  meson
 BuildSystem:    pyproject
 Requires:       meson
 Requires:       ninja
+Requires:       patchelf
 BuildOption(install): -l mesonpy +auto
 %description
 Meson-python is a PEP 517 build backend for Meson projects.
