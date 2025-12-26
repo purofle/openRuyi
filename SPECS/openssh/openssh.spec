@@ -216,6 +216,14 @@ install -p -D -m 0644 %{SOURCE12} %{buildroot}%{_sysusersdir}/openssh-server.con
 # TODO: We don't need these now but maybe in the future
 rm -f $RPM_BUILD_ROOT/etc/profile.d/gnome-ssh-askpass.*
 
+%check
+make file-tests
+make interop-tests
+make extra-tests
+make unit
+pushd openbsd-compat/regress
+make
+popd
 
 %pre server
 %sysusers_create_package %{name} %{SOURCE12}
