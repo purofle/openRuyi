@@ -45,9 +45,8 @@ the data available from some of the popular location services.
 Summary:        Development files for %{name}
 Requires:       %{name} = %{version}-%{release}
 Requires:       pkgconfig(Qt6Gui)
-Requires:       Qt6Positioning
+Requires:       pkgconfig(Qt6Positioning)
 Requires:       qt6-declarative-devel
-Requires:       qt6-positioning-devel
 
 %description    devel
 Development files for %{name}.
