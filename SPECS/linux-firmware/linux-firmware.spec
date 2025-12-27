@@ -113,40 +113,18 @@ for Linux. This includes the 3945(A)BG and 4965AGN WiFi NICs. Usage
 of the firmware is subject to the terms and conditions contained
 inside the provided LICENSE file. Please read it carefully.
 
-%package        -n iwlwifi-dvm-firmware
-Summary:        DVM Firmware for Intel(R) Wireless WiFi adapters
+%package        -n iwlwifi-firmware
+Summary:        Firmware for modern Intel(R) Wireless WiFi adapters
 License:        LicenseRef-openRuyi-Redistributable-no-modification-permitted
 Requires:       linux-firmware-whence = %{version}-%{release}
+Obsoletes:      iwlwifi-dvm-firmware < %{version}-%{release}
+Obsoletes:      iwlwifi-mvm-firmware < %{version}-%{release}
+Obsoletes:      iwlwifi-mld-firmware < %{version}-%{release}
 
-%description    -n iwlwifi-dvm-firmware
-This package contains the firmware required by the iwlwifi driver
-for Linux built with DVM firmware support (CONFIG_IWLDVM=y/m). Usage of
-the firmware is subject to the terms and conditions contained inside the
-provided LICENSE file. Please read it carefully.
-
-%package        -n iwlwifi-mvm-firmware
-Summary:        MVM Firmware for Intel(R) Wireless WiFi adapters
-License:        LicenseRef-openRuyi-Redistributable-no-modification-permitted
-Requires:       linux-firmware-whence = %{version}-%{release}
-# Same hardware, newer firmware with a different driver, enables smooth migration
-Requires:       iwlwifi-mld-firmware = %{version}-%{release}
-
-%description    -n iwlwifi-mvm-firmware
-This package contains the firmware required by the iwlwifi driver
-for Linux built with MVM firmware support (CONFIG_IWLMVM=y/m).  Usage of
-the firmware is subject to the terms and conditions contained inside the
-provided LICENSE file. Please read it carefully.
-
-%package        -n iwlwifi-mld-firmware
-Summary:        MLD Firmware for Intel(R) Wireless WiFi adapters
-License:        LicenseRef-openRuyi-Redistributable-no-modification-permitted
-Requires:       linux-firmware-whence = %{version}-%{release}
-
-%description    -n iwlwifi-mld-firmware
-This package contains the firmware required by the iwlwifi driver
-for Linux built with MLD firmware support (CONFIG_IWLMLD=y/m).  Usage of
-the firmware is subject to the terms and conditions contained inside the
-provided LICENSE file. Please read it carefully.
+%description    -n iwlwifi-firmware
+This package contains the firmware required by the iwlwifi driver.
+Usage of the firmware is subject to the terms and conditions contained
+inside the provided LICENSE file. Please read it carefully.
 
 %package        -n libertas-firmware
 Summary:        Firmware for Marvell Libertas SD/USB WiFi Network Adapters
@@ -533,68 +511,16 @@ end
 %{_firmwarepath}/iwlwifi-4965-*.ucode*
 %{_firmwarepath}/intel/iwlwifi/iwlwifi-4965-*.ucode*
 
-%files -n iwlwifi-dvm-firmware
+%files -n iwlwifi-firmware
 %license LICENCE.iwlwifi_firmware
-%{_firmwarepath}/iwlwifi-1??-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-1??-*.ucode*
-%{_firmwarepath}/iwlwifi-1000-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-1000-*.ucode*
-%{_firmwarepath}/iwlwifi-20?0-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-20?0-*.ucode*
-%{_firmwarepath}/iwlwifi-5??0-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-5??0-*.ucode*
-%{_firmwarepath}/iwlwifi-60?0-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-60?0-*.ucode*
-%{_firmwarepath}/iwlwifi-6000g2?-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-6000g2?-*.ucode*
-
-%files -n iwlwifi-mvm-firmware
-%license LICENCE.iwlwifi_firmware
-%{_firmwarepath}/iwlwifi-316?-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-316?-*.ucode*
-%{_firmwarepath}/iwlwifi-726?-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-726?-*.ucode*
-%{_firmwarepath}/iwlwifi-7265D-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-7265D-*.ucode*
-%{_firmwarepath}/iwlwifi-8000C-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-8000C-*.ucode*
-%{_firmwarepath}/iwlwifi-8265-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-8265-*.ucode*
-%{_firmwarepath}/iwlwifi-9??0-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-9??0-*.ucode*
-%{_firmwarepath}/iwlwifi-cc-a0-*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-cc-a0-*.ucode*
-%{_firmwarepath}/iwlwifi-gl-c0*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-gl-c0*
-%{_firmwarepath}/iwlwifi-ma-b0*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-ma-b0*
-%{_firmwarepath}/iwlwifi-Qu*.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-Qu*.ucode*
-%{_firmwarepath}/iwlwifi-ty-a0*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-ty-a0*
-%{_firmwarepath}/iwlwifi-so-a0*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-so-a0*
-%{_firmwarepath}/iwlwifi-bz-b0*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-bz-b0*
-%exclude %{_firmwarepath}/iwlwifi-bz-b0*9[7-9].ucode*
-%exclude %{_firmwarepath}/iwlwifi-bz-b0*1??.ucode*
-%exclude %{_firmwarepath}/intel/iwlwifi/iwlwifi-bz-b0*9[7-9].ucode*
-%exclude %{_firmwarepath}/intel/iwlwifi/iwlwifi-bz-b0*1??.ucode*
-%exclude %{_firmwarepath}/iwlwifi-gl-c0*9[7-9].ucode*
-%exclude %{_firmwarepath}/iwlwifi-gl-c0*1??.ucode*
-%exclude %{_firmwarepath}/intel/iwlwifi/iwlwifi-gl-c0*9[7-9].ucode*
-%exclude %{_firmwarepath}/intel/iwlwifi/iwlwifi-gl-c0*1??.ucode*
-
-%files -n iwlwifi-mld-firmware
-%license LICENCE.iwlwifi_firmware
-%{_firmwarepath}/iwlwifi-bz-b0*9[7-9].ucode*
-%{_firmwarepath}/iwlwifi-bz-b0*1??.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-bz-b0*9[7-9].ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-bz-b0*1??.ucode*
-%{_firmwarepath}/iwlwifi-gl-c0*9[7-9].ucode*
-%{_firmwarepath}/iwlwifi-gl-c0*1??.ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-gl-c0*9[7-9].ucode*
-%{_firmwarepath}/intel/iwlwifi/iwlwifi-gl-c0*1??.ucode*
+%{_firmwarepath}/iwlwifi-*.ucode*
+%{_firmwarepath}/intel/iwlwifi/iwlwifi-*.ucode*
+%{_firmwarepath}/iwlwifi-*.pnvm*
+%{_firmwarepath}/intel/iwlwifi/iwlwifi-*.pnvm*
+%exclude %{_firmwarepath}/iwlwifi-3945-*.ucode*
+%exclude %{_firmwarepath}/intel/iwlwifi/iwlwifi-3945-*.ucode*
+%exclude %{_firmwarepath}/iwlwifi-4965-*.ucode*
+%exclude %{_firmwarepath}/intel/iwlwifi/iwlwifi-4965-*.ucode*
 
 %files -n libertas-firmware
 %license LICENCE.Marvell LICENCE.OLPC
