@@ -1,6 +1,7 @@
-# SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
-# SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
+# SPDX-FileCopyrightText: (C) 2025, 2026 Institute of Software, Chinese Academy of Sciences (ISCAS)
+# SPDX-FileCopyrightText: (C) 2025, 2026 openRuyi Project Contributors
 # SPDX-FileContributor: Yafen Fang <yafen@iscas.ac.cn>
+# SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -43,6 +44,10 @@ and maps) on the system.
 
 %build -a
 %make_build -C docs V=1 man prefix=%{_prefix} mandir=%{_mandir}
+
+%install -a
+# bpftool Makefile hardcodes installation to %%{_prefix}/sbin
+mv %{buildroot}%{_prefix}/sbin %{buildroot}%{_bindir}
 
 # No tests
 %check
