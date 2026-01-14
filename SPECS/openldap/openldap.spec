@@ -72,7 +72,7 @@ BuildOption(conf):  --with-yielding-select
 BuildOption(conf):  --with-argon2=libargon2
 BuildOption(install):  STRIP="" "sysconfdir=%{_sysconfdir}/openldap" "libexecdir=%{_libexecdir}"
 
-BuildRequires:  libargon2-devel
+BuildRequires:  pkgconfig(libargon2)
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:  db-devel
 BuildRequires:  mandoc

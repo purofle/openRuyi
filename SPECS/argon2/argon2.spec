@@ -2,11 +2,12 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
 %global _test_target test
-%global libname      libargon2
+
 Name:           argon2
 Version:        20190702
 Release:        %autorelease
@@ -17,33 +18,25 @@ URL:            https://github.com/P-H-C/phc-winner-argon2
 Source:         https://github.com/P-H-C/phc-winner-argon2/archive/refs/tags/%{version}.tar.gz
 BuildSystem:    autotools
 
-BuildOption(build): -j1
-BuildOption(build): CFLAGS="%{optflags} -Iinclude"
-
-BuildOption(install): PREFIX=%{_prefix}
-BuildOption(install): LIBRARY_REL=%{_lib}
+BuildOption(build):  -j1
+BuildOption(build):  CFLAGS="%{optflags} -Iinclude"
+BuildOption(install):  PREFIX=%{_prefix}
+BuildOption(install):  LIBRARY_REL=%{_lib}
 
 BuildRequires:  gcc
 BuildRequires:  make
-Requires:       %{libname} = %{version}
 
 %description
 Argon2 is a password-hashing function that can be used to hash passwords
 for credential storage, key derivation, or other applications.
 
-%package -n     %{libname}
-Summary:        The password-hashing library
+%package        devel
+Summary:        Development files for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description -n %{libname}
-This package contains the shared library for the Argon2 password-hashing function.
-
-%package -n     %{libname}-devel
-Summary:        Development files for %{libname}
-Requires:       %{libname} = %{version}
-
-%description -n %{libname}-devel
+%description    devel
 This package contains libraries and header files for
-developing applications that use %{libname}.
+developing applications that use %{name}.
 
 %prep -a
 # Honours default RPM build options and library path, do not use -march=native
@@ -55,28 +48,26 @@ sed -e '/^CFLAGS/s:^CFLAGS:LDFLAGS=%{build_ldflags}\nCFLAGS:' \
     -i Makefile
 
 # Fix pkgconfig file
-sed -e 's:lib/@HOST_MULTIARCH@:%{_lib}:;s/@UPSTREAM_VER@/%{version}/' -i %{libname}.pc.in
+sed -e 's:lib/@HOST_MULTIARCH@:%{_lib}:;s/@UPSTREAM_VER@/%{version}/' -i libargon2.pc.in
 
 # No configure
 %conf
 
 %install -a
-rm %{buildroot}%{_libdir}/%{libname}.a
-install -Dpm 644 %{libname}.pc %{buildroot}%{_libdir}/pkgconfig/%{libname}.pc
+rm %{buildroot}%{_libdir}/libargon2.a
+install -Dpm 644 libargon2.pc %{buildroot}%{_libdir}/pkgconfig/libargon2.pc
 chmod -x %{buildroot}%{_includedir}/%{name}.h
 
 %files
-%{_bindir}/argon2
-
-%files -n %{libname}
 %license LICENSE
+%{_bindir}/argon2
 %{_libdir}/libargon2.so.*
 
-%files -n %{libname}-devel
+%files devel
 %doc *md
 %{_includedir}/%{name}.h
 %{_libdir}/libargon2.so
-%{_libdir}/pkgconfig/%{libname}.pc
+%{_libdir}/pkgconfig/libargon2.pc
 
 %changelog
 %{?autochangelog}
