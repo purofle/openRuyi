@@ -5,8 +5,6 @@
 
 Type: spec
 Repotype: rpm-md sha512:rsyncable:zchunk:compression-zstd:filelists-ex
-OptFlags: riscv64 -O2 -g -march=rva23u64
-OptFlags: x86_64 -O2 -g
 
 Release: <CI_CNT>.<B_CNT>%%{?dist}
 PublishFilter: .*-bootstrap.*
@@ -126,10 +124,8 @@ Ignore: pesign:systemd
 Ignore: texlive-filesystem:cron
 
 Macros:
-%build_ldflags %{nil}
 %_empty_manifest_terminate_build 0
 %_unpackaged_files_terminate_build 1
-%_lto_cflags %{nil}
 %dist .or
 %_vendor openruyi
 %ext_info .gz
