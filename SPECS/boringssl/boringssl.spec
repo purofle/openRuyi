@@ -2,29 +2,29 @@
 # SPDX-FileCopyrightText: (C) 2025, 2026 openRuyi Project Contributors
 # SPDX-FileContributor: Julian Zhu <julian.oerv@isrc.iscas.ac.cn>
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
+
+# FIXME: Avoid having warnings treated as errors on line asn1_test.cc:2441
+%global build_cxxflags %{build_cxxflags} -Wno-array-bounds
 
 Name:           boringssl
 Version:        0.20251124.0
 Release:        %autorelease
 Summary:        Fork of OpenSSL that is designed to meet Google's needs.
 License:        Apache-2.0
-URL:            https://boringssl.googlesource.com/boringssl/
+URL:            https://boringssl.googlesource.com/boringssl
 #!RemoteAsset
 Source:         https://github.com/google/boringssl/releases/download/%{version}/%{name}-%{version}.tar.gz
-
-Patch1:         Fix-install-cmake-prefix-path.patch
-
 BuildSystem:    cmake
 
-BuildRequires:  cmake
-BuildRequires:  ninja
+Patch0:         Fix-install-cmake-prefix-path.patch
 
 BuildOption(conf):  -GNinja
 
-# FIXME: Avoid having warnings treated as errors on line asn1_test.cc:2441
-%global build_cxxflags %{build_cxxflags} -Wno-array-bounds
+BuildRequires:  cmake
+BuildRequires:  ninja
 
 %description
 Although BoringSSL is an open source project, it is not intended for general
