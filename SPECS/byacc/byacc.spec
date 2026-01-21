@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,8 +12,9 @@ Name:           byacc
 Version:        2.0.%{byaccdate}
 Release:        %autorelease
 Summary:        A parser generator
-License:        Public-Domain
+License:        LicenseRef-openRuyi-Public-Domain
 URL:            https://invisible-island.net/byacc/byacc.html
+# VCS: No VCS link available
 #!RemoteAsset
 Source:         https://invisible-mirror.net/archives/byacc/byacc-%{byaccdate}.tgz
 BuildSystem:    autotools
