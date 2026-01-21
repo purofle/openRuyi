@@ -13,6 +13,7 @@ Release:        %autorelease
 Summary:        CA certificates for OpenSSL
 License:        MPL-2.0
 URL:            https://www.mozilla.org
+# VCS: No VCS link available
 # https://hg.mozilla.org/projects/nss/raw-file/default/lib/ckfw/builtins/certdata.txt
 Source0:        certdata.txt
 # https://hg.mozilla.org/projects/nss/raw-file/default/lib/ckfw/builtins/nssckbi.h
@@ -20,6 +21,7 @@ Source1:        nssckbi.h
 # https://src.fedoraproject.org/rpms/ca-certificates/raw/rawhide/f/certdata2pem.py
 Source2:        certdata2pem.py
 Source3:        COPYING
+
 BuildRequires:  ca-certificates
 BuildRequires:  openssl
 BuildRequires:  python3
