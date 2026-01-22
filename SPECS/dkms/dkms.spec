@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Sun Yuechi <sunyuechi@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -10,16 +11,15 @@ Version:        3.2.2
 Release:        %autorelease
 License:        GPL-2.0-or-later
 URL:            http://linux.dell.com/dkms
-
+VCS:            git:https://github.com/dkms-project/dkms
 #!RemoteAsset
-Source0:        https://github.com/dell/dkms/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/dkms-project/dkms/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires:  make
 BuildRequires:  systemd-rpm-macros
 
 Requires:       coreutils
 Requires:       cpio
-
 Requires:       file
 Requires:       findutils
 Requires:       gawk
