@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025, 2026 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: ayostl <yao_xp@yeah.net>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -20,7 +21,6 @@ BuildRequires:  iso-codes
 Requires(pre):  setup
 
 Provides:       filesystem-afs = %{version}-%{release}
-Obsoletes:      filesystem-afs <= 3.14-2
 
 %description
 The filesystem package is one of the basic packages that is installed
