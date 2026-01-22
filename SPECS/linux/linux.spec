@@ -35,12 +35,11 @@ Source1:          config.%{_arch}
 BuildRequires:    gcc, bison, binutils, glibc-devel, make, perl
 BuildRequires:    flex, bison
 BuildRequires:    bc, cpio, dwarves, gettext, python3, rsync, tar, xz, zstd
-BuildRequires:    libasm-devel
 BuildRequires:    libdebuginfod-dummy-devel
 BuildRequires:    ncurses-devel
 BuildRequires:    libcap-devel
 BuildRequires:    libssh-devel
-BuildRequires:    libdw-devel
+BuildRequires:    pkgconfig(libdw)
 BuildRequires:    libelf-devel
 BuildRequires:    zstd-devel
 BuildRequires:    python3-devel

@@ -25,7 +25,7 @@ BuildRequires:  acl-devel
 BuildRequires:  libarchive-devel
 BuildRequires:  bzip2-devel
 BuildRequires:  libcap-devel
-BuildRequires:  libdw-devel
+BuildRequires:  pkgconfig(libdw)
 BuildRequires:  libelf-devel
 BuildRequires:  libgcrypt-devel
 BuildRequires:  libselinux-devel
