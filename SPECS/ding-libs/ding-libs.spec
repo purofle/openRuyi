@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Jingkun Zheng <zhengjingkun@iscas.ac.cn>
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -9,12 +10,12 @@ Name:           ding-libs
 Version:        0.6.2
 Release:        %autorelease
 Summary:        'Ding is not GLib' utility libraries
-License:        GPLv3+ and LGPLv3+
-URL:            https://github.com/SSSD/ding-libs/releases
+License:        GPL-3.0-or-later AND LGP-3.0-or-later
+URL:            https://github.com/SSSD/ding-libs
 #!RemoteAsset
 Source0:        https://github.com/SSSD/ding-libs/releases/download/%{version}/%{name}-%{version}.tar.gz
-
 BuildSystem:    autotools
+
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  gcc
@@ -26,11 +27,11 @@ BuildRequires:  pkgconfig
 A meta-package that pulls in libcollection, libdhash, libini_config,
 librefarray libbasicobjects, and libpath_utils.
 
-%package devel
-Summary:         Development files for ding-libs
-Requires:        ding-libs = %{version}-%{release}
+%package        devel
+Summary:        Development files for ding-libs
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description devel
+%description    devel
 This package provides development libraries and other development files.
 
 %conf -p
