@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Yafen Fang <yafen@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -10,6 +11,7 @@ Release:        %autorelease
 Summary:        Library to access DWARF debugging information
 License:        LGPL-2.1-only AND BSD-2-Clause-FreeBSD
 URL:            https://www.prevanders.net/dwarf.html
+VCS:            git:https://github.com/davea42/libdwarf-code
 #!RemoteAsset
 Source0:        https://github.com/davea42/libdwarf-code/releases/download/v%{version}/libdwarf-%{version}.tar.xz
 Patch0:         libdwarf-both.patch
@@ -27,27 +29,27 @@ BuildRequires:  pkgconfig(zlib)
 Libdwarf is a library of functions to provide read/write DWARF
 debugging records.
 
-%package       devel
-Summary:       Library and header files of libdwarf
-License:       LGPL-2.1-only AND BSD-2-Clause-FreeBSD
-Requires:      %{name}%{?_isa} = %{version}-%{release}
+%package        devel
+Summary:        Library and header files of libdwarf
+License:        LGPL-2.1-only AND BSD-2-Clause-FreeBSD
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description   devel
+%description    devel
 Libdwarf-devel provides the libraries and header files for libdwarf.
 
-%package       static
-Summary:       Static libdwarf library
-License:       LGPL-2.1-only AND BSD-2-Clause-FreeBSD
-Requires:      %{name}-devel = %{version}-%{release}
+%package        static
+Summary:        Static libdwarf library
+License:        LGPL-2.1-only AND BSD-2-Clause-FreeBSD
+Requires:       %{name}-devel = %{version}-%{release}
 
-%description   static
+%description    static
 Libdwarf-static provides the static libdwarf library.
 
-%package       tools
-Summary:       Tools for accessing DWARF debugging information
-License:       GPL-2.0-only AND BSD-2-Clause-FreeBSD
+%package        tools
+Summary:        Tools for accessing DWARF debugging information
+License:        GPL-2.0-only AND BSD-2-Clause-FreeBSD
 
-%description   tools
+%description    tools
 Libdwarf-tools provides C++ version of dwarfdump (dwarfdump2) command-line utilities
 to access DWARF debug information.
 
