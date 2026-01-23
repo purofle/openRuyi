@@ -3,6 +3,7 @@
 # SPDX-FileContributor: Suyun114 <ziyu.oerv@isrc.iscas.ac.cn>
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: laokz <zhangkai@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -12,40 +13,39 @@ Release:        %autorelease
 Summary:        GNU's Ubiquitous Intelligent Language for Extension
 License:        GFDL-1.3-only AND GPL-3.0-or-later AND LGPL-3.0-or-later
 URL:            https://www.gnu.org/software/guile/
+VCS:            git:https://codeberg.org/guile/guile.git
 #!RemoteAsset
 Source0:        https://ftpmirror.gnu.org/gnu/guile/%{name}-%{version}.tar.xz
 #!RemoteAsset
 Source1:        https://ftpmirror.gnu.org/gnu/guile/%{name}-%{version}.tar.xz.sig
-
 BuildSystem:    autotools
+
 BuildOption(conf):  --disable-static
 
-BuildRequires:  gc-devel
-BuildRequires:  gmp-devel
-BuildRequires:  ncurses-devel
-BuildRequires:  readline-devel
-BuildRequires:  libffi-devel
+BuildRequires:  pkgconfig(bdw-gc)
+BuildRequires:  pkgconfig(gmp)
+BuildRequires:  pkgconfig(ncurses)
+BuildRequires:  pkgconfig(readline)
+BuildRequires:  pkgconfig(libffi)
 BuildRequires:  libunistring-devel
-BuildRequires:  libxcrypt-devel
+BuildRequires:  pkgconfig(libxcrypt)
 
 %description
 This is Guile, a portable, embeddable Scheme implementation written in
 C. Guile provides a machine independent execution platform that can be
 linked in as a library when building extensible programs.
 
-%package devel
-
+%package        devel
 Summary:        GNU's Ubiquitous Intelligent Language for Extension
 License:        LGPL-2.1-or-later
-
-Requires:       %{name} = %{version}
-Requires:       gc-devel
-Requires:       gmp-devel
-Requires:       ncurses-devel
-Requires:       readline-devel
-Requires:       libffi-devel
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       pkgconfig(bdw-gc)
+Requires:       pkgconfig(gmp)
+Requires:       pkgconfig(ncurses)
+Requires:       pkgconfig(readline)
+Requires:       pkgconfig(libffi)
 Requires:       libunistring-devel
-Requires:       libxcrypt-devel
+Requires:       pkgconfig(libxcrypt)
 
 %description    devel
 This is Guile, a portable, embeddable Scheme implementation written in
