@@ -1,5 +1,5 @@
-# SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
-# SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
+# SPDX-FileCopyrightText: (C) 2025, 2026 Institute of Software, Chinese Academy of Sciences (ISCAS)
+# SPDX-FileCopyrightText: (C) 2025, 2026 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
@@ -13,6 +13,8 @@ URL:            https://sparse.wiki.kernel.org/
 VCS:            git:https://git.kernel.org/pub/scm/devel/sparse/sparse.git
 #!RemoteAsset
 Source:         https://www.kernel.org/pub/software/devel/sparse/dist/sparse-%{version}.tar.xz
+# https://git.kernel.org/pub/scm/devel/sparse/sparse.git/commit/?id=adceff0ab6e3d8bf43de52e2c2fbebf27db30deb
+Patch1:         0001-linearize.c-fix-buffer-overrun-warning-from-fortify.patch
 BuildSystem:    autotools
 
 BuildOption(build):  CFLAGS="%{optflags}"
