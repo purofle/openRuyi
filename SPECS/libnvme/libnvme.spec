@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Yafen Fang <yafen@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -12,17 +13,17 @@ License:        LGPL-2.1-or-later
 URL:            https://github.com/linux-nvme/libnvme
 #!RemoteAsset
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
-
 BuildSystem:    meson
-BuildOption(conf): -Ddocs=man
+
+BuildOption(conf):  -Ddocs=man
 
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  swig
 BuildRequires:  python3-devel
-BuildRequires:  meson >= 0.62.0
+BuildRequires:  meson
 BuildRequires:  pkgconfig(dbus-1)
-BuildRequires:  pkgconfig(json-c) >= 0.13
+BuildRequires:  pkgconfig(json-c)
 BuildRequires:  pkgconfig(libkeyutils)
 BuildRequires:  pkgconfig(liburing)
 BuildRequires:  pkgconfig(openssl)
@@ -35,7 +36,7 @@ manage nvme devices on a Linux system.
 
 %package        devel
 Summary:        Development files for Linux-native nvme
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 This package provides header files to include and libraries to link with
@@ -48,14 +49,13 @@ BuildArch:      noarch
 %description    help
 This package contains the reference manual for %{name}.
 
-
-%package        -n python3-libnvme
-Summary:        Python3 bindings for libnvme
-Requires:       %{name} = %{version}-%{release}
+%package     -n python-libnvme
+Summary:        Python bindings for libnvme
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 Provides:       python3-nvme = %{version}-%{release}
 %{?python_provie:%python_provide python3-libnvme}
 
-%description    -n python3-libnvme
+%description -n python-libnvme
 This package contains Python binding for libnvme.
 
 %files
@@ -76,7 +76,7 @@ This package contains Python binding for libnvme.
 %files help
 %{_mandir}/man2/*
 
-%files -n python3-libnvme
+%files -n python-libnvme
 %dir %{python3_sitearch}/libnvme
 %{python3_sitearch}/libnvme/*
 
