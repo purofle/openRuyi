@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Yafen Fang <yafen@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -10,6 +11,7 @@ Release:        %autorelease
 Summary:        Tracks runtime library calls in dynamically linked programs
 License:        GPL-2.0-or-later
 URL:            https://ltrace.org/
+VCS:            git:https://gitlab.com/cespedes/ltrace
 #!RemoteAsset
 Source0:        https://gitlab.com/cespedes/ltrace/-/archive/%{version}/ltrace-%{version}.tar.gz
 BuildSystem:    autotools
@@ -18,7 +20,7 @@ BuildOption(conf):  --disable-werror
 
 BuildRequires:  pkgconfig(libdw)
 BuildRequires:  dejagnu
-BuildRequires:  libselinux-devel
+BuildRequires:  pkgconfig(libselinux)
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  libtool
