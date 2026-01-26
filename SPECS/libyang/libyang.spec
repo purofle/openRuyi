@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -15,26 +16,34 @@ URL:            https://github.com/CESNET/libyang
 Source:         https://github.com/CESNET/libyang/archive/refs/tags/v%{version}.tar.gz
 BuildSystem:    cmake
 
-BuildOption(conf): -DCMAKE_BUILD_TYPE:STRING=Release
-BuildOption(conf): -DENABLE_LYD_PRIV:BOOL=ON
-BuildOption(conf): -DGEN_LANGUAGE_BINDINGS:BOOL=ON
-BuildOption(conf): -DENABLE_VALGRIND_TESTS:BOOL=OFF
-BuildOption(conf): -DGEN_DOXYGEN_DOCS:BOOL=OFF
+BuildOption(conf):  -DCMAKE_BUILD_TYPE:STRING=Release
+BuildOption(conf):  -DENABLE_LYD_PRIV:BOOL=ON
+BuildOption(conf):  -DGEN_LANGUAGE_BINDINGS:BOOL=ON
+BuildOption(conf):  -DENABLE_VALGRIND_TESTS:BOOL=OFF
+BuildOption(conf):  -DGEN_DOXYGEN_DOCS:BOOL=OFF
 
-BuildRequires:  cmake doxygen pcre2-devel gcc gcc-c++ swig
-BuildRequires:  cmocka-devel python3-devel flex bison
+BuildRequires:  cmake
+BuildRequires:  doxygen
+BuildRequires:  pkgconfig(libpcre2-posix)
+BuildRequires:  gcc
+BuildRequires:  gcc-c++
+BuildRequires:  swig
+BuildRequires:  pkgconfig(cmocka)
+BuildRequires:  pkgconfig(python3)
+BuildRequires:  flex
+BuildRequires:  bison
 
 %description
 Libyang is a YANG data modeling language parser and toolkit written (and
 providing API) in C. This package contains the core C library and command-line
 tools.
 
-%package devel
+%package        devel
 Summary:        Development files for libyang
-Requires:       %{name} = %{version}
-Requires:       pcre2-devel
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       pkgconfig(libpcre2-posix)
 
-%description devel
+%description    devel
 Headers, pkg-config, and other development files for the libyang library.
 This package also contains the API documentation.
 
