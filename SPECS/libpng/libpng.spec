@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Suyun114 <ziyu.oerv@isrc.iscas.ac.cn>
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,13 +12,14 @@ Release:        %autorelease
 Summary:        A library of functions for manipulating PNG image format files
 License:        zlib
 URL:            http://www.libpng.org/pub/png/
+VCS:            git:https://github.com/glennrp/libpng
 #!RemoteAsset
 Source0:        https://github.com/glennrp/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
-
 BuildSystem:    autotools
+
 BuildOption(conf):  --disable-static
 
-BuildRequires:  zlib-devel
+BuildRequires:  pkgconfig(zlib)
 
 %description
 The libpng package contains a library of functions for creating and
@@ -31,7 +33,7 @@ files.
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name} = %{version}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 The libpng-devel package contains header files and documentation necessary
