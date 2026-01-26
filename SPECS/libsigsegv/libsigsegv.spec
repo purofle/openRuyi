@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Suyun114 <ziyu.oerv@isrc.iscas.ac.cn>
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,14 +12,15 @@ Release:        %autorelease
 Summary:        Library for Handling Page Faults in User Mode
 License:        GPL-2.0-or-later
 #!RemoteAsset
-URL:            https://www.gnu.org/software/%{name}/
+URL:            https://www.gnu.org/software/libsigsegv/
+VCS:            git:https://git.savannah.gnu.org/git/libsigsegv.git
 #!RemoteAsset
 Source0:        https://ftpmirror.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 #!RemoteAsset
 Source1:        https://ftpmirror.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz.sig
-
 BuildSystem:    autotools
-BuildOption:    --enable-shared
+
+BuildOption(conf):  --enable-shared
 
 %description
 This is a library for handling page faults in user mode. A page fault occurs
@@ -27,7 +29,7 @@ available.
 
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name} = %{version}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 This is a library for handling page faults in user mode. A page fault occurs
