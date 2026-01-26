@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -9,11 +10,12 @@ Version:        0.8.1
 Release:        %autorelease
 Summary:        Unit testing framework for Lua
 License:        MIT
-URL:            https://github.com/dcurrie/lunit/
+URL:            https://github.com/dcurrie/lunit
 #!RemoteAsset
 Source:         https://github.com/dcurrie/lunit/archive/refs/tags/%{version}.tar.gz
 
-BuildRequires:  lua-devel >= 5.2
+BuildRequires:  pkgconfig(lua)
+
 Provides:       lua-lunit = %{version}-%{release}
 
 %description
