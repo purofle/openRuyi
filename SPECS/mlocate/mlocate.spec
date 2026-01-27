@@ -3,6 +3,7 @@
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: laokz <zhangkai@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -14,20 +15,20 @@ License:        GPL-2.0-only
 URL:            https://pagure.io/mlocate
 #!RemoteAsset
 Source0:        http://releases.pagure.org/mlocate/mlocate-%{version}.tar.xz
+BuildSystem:    autotools
+
+BuildOption(conf):  --localstatedir=%{_localstatedir}/lib
+
 BuildRequires:  xz
 BuildRequires:  sed
 BuildRequires:  grep
 BuildRequires:  autoconf
 BuildRequires:  automake
-BuildSystem:    autotools
-
-BuildOption(conf): --localstatedir=%{_localstatedir}/lib
 
 %description
-A new locate implementation. The m character
-stands for merging, because updatedb reuses the
-existing database to avoid re-reading most of the
-file system.
+A new locate implementation. The m character stands for merging,
+because updatedb reuses the existing database to avoid re-reading
+most of the file system.
 
 %conf -p
 autoreconf -fiv
@@ -35,6 +36,7 @@ autoreconf -fiv
 %install -a
 # Avoid illegal package names
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
+
 %find_lang %{name} --generate-subpackages
 
 %files
