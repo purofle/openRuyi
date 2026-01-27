@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025, 2026 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,11 +12,17 @@ Release:        %autorelease
 Summary:        A utility for patching ELF binaries
 License:        GPL-3.0-or-later
 URL:            https://nixos.org/patchelf.html
+VCS:            git:https://github.com/NixOS/patchelf
 #!RemoteAsset
 Source0:        https://github.com/NixOS/patchelf/archive/refs/tags/%{version}/patchelf-%{version}.tar.gz
 BuildSystem:    autotools
 
-BuildRequires:  gcc gcc-c++ make autoconf automake libtool
+BuildRequires:  gcc
+BuildRequires:  gcc-c++
+BuildRequires:  make
+BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  libtool
 
 %description
 PatchELF is a simple utility for modifying an existing ELF executable
