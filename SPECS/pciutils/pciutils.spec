@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,40 +12,41 @@ Release:        %autorelease
 Summary:        PCI utilities for the Linux Kernel
 License:        GPL-2.0-or-later
 URL:            https://mj.ucw.cz/sw/pciutils/
+VCS:            git:https://git.kernel.org/pub/scm/utils/pciutils/pciutils.git
 #!RemoteAsset
 Source:         https://www.kernel.org/pub/software/utils/pciutils/pciutils-%{version}.tar.xz
 BuildSystem:    autotools
 
-BuildOption(build):   OPT="%{optflags}"
-BuildOption(build):   PREFIX=%{_prefix}
-BuildOption(build):   LIBDIR=%{_libdir}
-BuildOption(build):   SBINDIR=%{_sbindir}
-BuildOption(build):   STRIP=""
-BuildOption(build):   SHARED="yes"
-
-BuildOption(install): install-lib
-BuildOption(install): PREFIX=%{_prefix}
-BuildOption(install): SBINDIR=%{_sbindir}
-BuildOption(install): ROOT=""
-BuildOption(install): MANDIR=%{_mandir}
-BuildOption(install): STRIP=""
-BuildOption(install): SHARED="yes"
-BuildOption(install): LIBDIR=%{_libdir}
+BuildOption(build):  OPT="%{optflags}"
+BuildOption(build):  PREFIX=%{_prefix}
+BuildOption(build):  LIBDIR=%{_libdir}
+BuildOption(build):  SBINDIR=%{_sbindir}
+BuildOption(build):  STRIP=""
+BuildOption(build):  SHARED="yes"
+BuildOption(install):  install-lib
+BuildOption(install):  PREFIX=%{_prefix}
+BuildOption(install):  SBINDIR=%{_sbindir}
+BuildOption(install):  ROOT=""
+BuildOption(install):  MANDIR=%{_mandir}
+BuildOption(install):  STRIP=""
+BuildOption(install):  SHARED="yes"
+BuildOption(install):  LIBDIR=%{_libdir}
 
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(libkmod)
 BuildRequires:  pkgconfig(zlib)
+
 Requires:       hwdata
 
 %description
 This package contains command-line utilities for inspecting and manipulating
 devices connected to the PCI bus.
 
-%package devel
+%package        devel
 Summary:        Development files for the PCI utilities
-Requires:       %{name} = %{version}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description devel
+%description    devel
 This package contains the header files and development files for the
 PCI utilities library.
 
