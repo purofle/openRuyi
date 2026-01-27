@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -69,14 +70,14 @@ BuildRequires:  pkgconfig(libcap)
 BuildRequires:  perl-XML-Parser
 BuildRequires:  xmltoman
 BuildRequires:  pkgconfig(bluez)
-BuildRequires:  alsa-lib-devel
+BuildRequires:  pkgconfig(alsa)
 BuildRequires:  pkgconfig(xt)
 BuildRequires:  pkgconfig(xtst)
 BuildRequires:  pkgconfig(xi)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(ice)
-BuildRequires:  xcb-util-devel
+BuildRequires:  pkgconfig(xcb-util)
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(tdb)
 BuildRequires:  pkgconfig(speexdsp) >= 1.2
@@ -99,7 +100,6 @@ PulseAudio is a sound server for Linux.
 
 %package        devel
 Summary:        Headers and libraries for PulseAudio client development
-License:        LGPL-2.1-or-later
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
