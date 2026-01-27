@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: ayostl <yao_xp@yeah.net>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,17 +12,17 @@ Release:        %autorelease
 Summary:        Library for general decimal arithmetic
 License:        BSD-2-Clause
 URL:            https://www.bytereef.org/mpdecimal/index.html
+# VCS: No VCS link available
 #!RemoteAsset
 Source0:        https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-%{version}.tar.gz
 #!RemoteAsset
 Source1:        https://speleotrove.com/decimal/dectest.zip
-
 BuildSystem:    autotools
 
-BuildOption(conf): --disable-static
+BuildOption(conf):  --disable-static
 # Set LDXXFLAGS to properly pass the buildroot
 # linker flags to the C++ extension.
-BuildOption(build): LDXXFLAGS="%{?build_ldflags}"
+BuildOption(build):  LDXXFLAGS="%{?build_ldflags}"
 
 BuildRequires:  make
 BuildRequires:  gcc
@@ -34,7 +35,7 @@ Arithmetic Specification. The specification, written by Mike Cowlishaw from
 IBM, defines a general purpose arbitrary precision data type together with
 rigorously specified functions and rounding behavior.
 
-%package -n %{name}++
+%package     -n %{name}++
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Summary:        Library for general decimal arithmetic (C++)
 
@@ -49,7 +50,7 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       %{name}++%{?_isa} = %{version}-%{release}
 Summary:        Development headers for mpdecimal library
 
-%description devel
+%description    devel
 The package contains development headers for the mpdecimal library.
 
 %prep -a
