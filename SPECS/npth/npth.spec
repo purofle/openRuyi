@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Suyun114 <ziyu.oerv@isrc.iscas.ac.cn>
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -11,12 +12,13 @@ Release:        %autorelease
 Summary:        GNU Portable Threads library
 License:        LGPL-2.1-or-later
 URL:            https://gnupg.org/software/npth/
+VCS:            git:https://git.gnupg.org/npth.git
 #!RemoteAsset
 Source:         https://gnupg.org/ftp/gcrypt/%{name}/%{name}-%{version}.tar.bz2
 #!RemoteAsset
 Source2:        https://gnupg.org/ftp/gcrypt/%{name}/%{name}-%{version}.tar.bz2.sig
-
 BuildSystem:    autotools
+
 BuildOption(conf):  --disable-static
 
 %description
@@ -26,11 +28,11 @@ GNU Pth for non-ancient operating systems. In contrast to GNU Pth is is
 based on the system's standard threads implementation. Thus nPth allows
 the use of libraries which are not compatible to GNU Pth.
 
-%package devel
+%package        devel
 Summary:        Development files for %{name}
-Requires:       %{name} = %{version}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
-%description devel
+%description    devel
 This package contains libraries and header files for
 developing applications that use %{name}.
 
