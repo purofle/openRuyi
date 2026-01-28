@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -17,19 +18,19 @@ URL:            https://gitlab.gnome.org/GNOME/librest
 Source0:        https://download.gnome.org/sources/librest/0.10/librest-%{version}.tar.xz
 BuildSystem:    meson
 
-BuildOption(conf): -Dsoup2=false
-BuildOption(conf): -Dexamples=false
+BuildOption(conf):  -Dsoup2=false
+BuildOption(conf):  -Dexamples=false
 
 %if %{with doc}
-BuildOption(conf): -Dgtk_doc=true
+BuildOption(conf):  -Dgtk_doc=true
 %else
-BuildOption(conf): -Dgtk_doc=false
+BuildOption(conf):  -Dgtk_doc=false
 %endif
 
 %if %{with tests}
-BuildOption(conf): -Dtests=true
+BuildOption(conf):  -Dtests=true
 %else
-BuildOption(conf): -Dtests=false
+BuildOption(conf):  -Dtests=false
 %endif
 
 BuildRequires:  meson
@@ -40,7 +41,6 @@ BuildRequires:  pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(libsoup-3.0)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(json-glib-1.0)
-
 %if %{with doc}
 BuildRequires:  pkgconfig(gi-docgen)
 %endif
@@ -51,7 +51,7 @@ claim to be "RESTful".
 
 %package        devel
 Summary:        Development package for %{name}
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 Files for development with %{name}.
