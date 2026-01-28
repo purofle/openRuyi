@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -14,10 +15,11 @@ License:         BSD-3-Clause AND GPL-2.0-only
 URL:             https://github.com/facebook/zstd
 #!RemoteAsset
 Source:          https://github.com/facebook/zstd/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-
 Buildsystem:     autotools
+
 BuildRequires:   gzip
-BuildRequires:   gcc gcc-c++
+BuildRequires:   gcc
+BuildRequires:   gcc-c++
 BuildRequires:   pkgconfig(liblz4)
 BuildRequires:   pkgconfig(liblzma)
 BuildRequires:   pkgconfig(zlib)
@@ -35,7 +37,7 @@ and has a better compression ratio.
 
 %package         devel
 Summary:         Header files for zstd library
-Requires:        %{name} = %{version}-%{release}
+Requires:        %{name}%{?_isa} = %{version}-%{release}
 Provides:        libzstd-devel = %{version}-%{release}
 Obsoletes:       libzstd-devel < %{version}-%{release}
 Provides:        libzstd-static = %{version}-%{release}
