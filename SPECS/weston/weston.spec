@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <jialin.oerv@isrc.iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -103,7 +104,7 @@ BuildRequires:  pkgconfig(libspa-0.2)
 %endif
 
 # The keyboard layout information provided by this package is needed at runtime
-Requires: xkeyboard-config
+Requires:       xkeyboard-config
 
 %description
 Weston is the reference wayland compositor that can run on KMS, under X11
@@ -111,7 +112,7 @@ or under another compositor.
 
 %package        devel
 Summary:        Common headers for weston
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 Common headers for weston.
@@ -119,7 +120,7 @@ Common headers for weston.
 %if %{with demo}
 %package        demo
 Summary:        Weston demo program files
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    demo
 This package contains Weston demo program files.
