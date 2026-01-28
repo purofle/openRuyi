@@ -1,8 +1,11 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: Yafen Fang <yafen@iscas.ac.cn>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
+
+%global __requires_exclude ^/usr/bin/pkg-config$
 
 Name:           shared-mime-info
 Version:        2.4
@@ -10,15 +13,16 @@ Release:        %autorelease
 Summary:        Shared MIME information database
 License:        GPL-2.0-or-later
 URL:            http://freedesktop.org/Software/shared-mime-info
+VCS:            git:https://gitlab.freedesktop.org/xdg/shared-mime-info
 #!RemoteAsset
 Source0:        https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/%{version}/shared-mime-info-%{version}.tar.gz
+BuildSystem:    meson
+
 # Work-around for https://bugs.freedesktop.org/show_bug.cgi?id=40354
 Patch0001:      0001-Remove-sub-classing-from-OO.o-mime-types.patch
 # Fix build with libxml2 2.12.0
 # https://gitlab.freedesktop.org/xdg/shared-mime-info/-/issues/219
 Patch0002:      0002-Fix-build-with-libxml2-2.12.0.patch
-
-BuildSystem:    meson
 
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -33,8 +37,6 @@ BuildRequires:  pkgconfig(glib-2.0) >= 2.6.0
 BuildRequires:  pkgconfig(libxml-2.0) >= 2.4
 BuildRequires:  docbook-xsl
 BuildRequires:  docbook-dtds
-
-%global __requires_exclude ^/usr/bin/pkg-config$
 
 %description
 The shared-mime-info package contains the core database of common types
