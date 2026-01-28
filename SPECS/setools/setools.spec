@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -58,13 +59,15 @@ Requires:       python3-networkx
 %description    console-analyses
 Advanced analysis tools: sedta, seinfoflow.
 
-%package     -n python3-setools
+%package     -n python-setools
 Summary:        Policy analysis tools for SELinux
 License:        LGPL-2.1-only
 Provides:       setools-libs = %{version}-%{release}
+Provides:       python3-setools = %{version}-%{release}
+%python_provide python3-setools
 
-%description -n python3-setools
-Python 3 modules for SELinux policy analysis.
+%description -n python-setools
+Python modules for SELinux policy analysis.
 
 %package        gui
 Summary:        Policy analysis graphical tools for SELinux
