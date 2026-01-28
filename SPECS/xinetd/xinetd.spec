@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: (C) 2025 Institute of Software, Chinese Academy of Sciences (ISCAS)
 # SPDX-FileCopyrightText: (C) 2025 openRuyi Project Contributors
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
+# SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -9,22 +10,26 @@ Version:        2.3.15.4
 Release:        %autorelease
 Summary:        An extended Internet services daemon
 License:        xinetd
-URL:            https://github.com/openSUSE/xinetd/
+URL:            https://github.com/openSUSE/xinetd
 #!RemoteAsset
 Source0:        https://github.com/openSUSE/xinetd/archive/refs/tags/%{version}.tar.gz
 Source1:        sysconfig.xinetd
-Patch:          0001-xinetd-service-sysconfig.patch
 BuildSystem:    autotools
 
-BuildOption(conf): --disable-silent-rules
-BuildOption(conf): --without-libwrap
-BuildOption(build): CFLAGS="%{optflags} -std=gnu17"
+Patch0:         0001-xinetd-service-sysconfig.patch
 
-BuildRequires:  pkgconfig autoconf automake
+BuildOption(conf):  --disable-silent-rules
+BuildOption(conf):  --without-libwrap
+BuildOption(build):  CFLAGS="%{optflags} -std=gnu17"
+
+BuildRequires:  pkgconfig
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:  libtool
 BuildRequires:  pkgconfig(libselinux)
 BuildRequires:  pkgconfig(libtirpc)
 BuildRequires:  systemd-rpm-macros
+
 Provides:       inet-daemon
 
 %description
