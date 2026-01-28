@@ -41,7 +41,7 @@ APIs for applications to access TPM module through kernel TPM drivers.
 
 %package        devel
 Summary:        Headers and libraries for building apps that use tpm2-tss
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 This package contains headers and libraries required to build applications that
