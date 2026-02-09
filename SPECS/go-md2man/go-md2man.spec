@@ -26,12 +26,12 @@ BuildRequires:  go(github.com/russross/blackfriday/v2)
 %description
 go-md2man Converts markdown into roff (man pages).
 
-%package     -n golang-github-cpuguy83-go-md2man-v2
+%package     -n go-github-cpuguy83-go-md2man-v2
 Summary:        Converts markdown into roff (man pages) (Source).
 Provides:       go(github.com/cpuguy83/go-md2man/v2) = %{version}
 Requires:       go(github.com/russross/blackfriday/v2)
 
-%description -n golang-github-cpuguy83-go-md2man-v2
+%description -n go-github-cpuguy83-go-md2man-v2
 go-md2man Converts markdown into roff (man pages).
 
 This package contains the source for go-md2man version 2.
@@ -45,7 +45,7 @@ This package contains the source for go-md2man version 2.
 %doc README*
 %{_bindir}/%{_name}
 
-%files -n golang-github-cpuguy83-go-md2man-v2
+%files -n go-github-cpuguy83-go-md2man-v2
 %license LICENSE*
 %doc README*
 %{go_sys_gopath}/%{go_import_path}
