@@ -29,7 +29,7 @@ Patch1:         crash-9.0.1_build.patch
 BuildRequires:  ncurses-devel
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(lzo2)
-BuildRequires:  pkgconfig(snappy)
+BuildRequires:  snappy-devel
 BuildRequires:  bison
 BuildRequires:  texinfo
 BuildRequires:  pkgconfig(libzstd)
