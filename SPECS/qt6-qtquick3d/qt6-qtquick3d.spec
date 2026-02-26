@@ -12,7 +12,7 @@
 %bcond system_assimp 0
 %bcond system_openxr 0
 
-Name:           qt6-quick3d
+Name:           qt6-qtquick3d
 Version:        6.10.1
 Release:        %autorelease
 Summary:        Qt6 - Quick3D Libraries and utilities
@@ -62,7 +62,7 @@ The Qt 6 Quick3D library.
 Summary:        Development files for %{name}
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       pkgconfig(Qt6Gui)
-Requires:       qt6-quick3d
+Requires:       qt6-qtquick3d
 Requires:       pkgconfig(Qt6Quick)
 
 %description    devel
