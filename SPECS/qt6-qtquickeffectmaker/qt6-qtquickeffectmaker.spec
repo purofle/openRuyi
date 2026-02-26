@@ -9,7 +9,7 @@
 %define real_version 6.10.1
 %define short_version 6.10
 
-Name:           qt6-quickeffectmaker
+Name:           qt6-qtquickeffectmaker
 Version:        6.10.1
 Release:        %autorelease
 Summary:        Tool for creating shader effects for Qt Quick
