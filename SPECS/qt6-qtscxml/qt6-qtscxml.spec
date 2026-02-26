@@ -9,7 +9,7 @@
 %define real_version 6.10.1
 %define short_version 6.10
 
-Name:           qt6-scxml
+Name:           qt6-qtscxml
 Version:        6.10.1
 Release:        %autorelease
 Summary:        Qt6 - ScXml component
