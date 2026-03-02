@@ -151,6 +151,7 @@ BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(zlib)
 BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(readline)
+BuildRequires:  pkgconfig(uuid)
 
 %if %{with rpmwheels}
 # Python 3.12 removed the deprecated imp module,
@@ -614,7 +615,7 @@ EXCLUDES="-x test_ensurepip -x test_ctypes -x test_tools"
 %{dynload_dir}/_ssl.*.so
 %{dynload_dir}/_statistics.*.so
 %{dynload_dir}/_struct.*.so
-#{dynload_dir}/_uuid.*.so
+%{dynload_dir}/_uuid.*.so
 %{dynload_dir}/_zoneinfo.*.so
 %{dynload_dir}/array.*.so
 %{dynload_dir}/binascii.*.so
