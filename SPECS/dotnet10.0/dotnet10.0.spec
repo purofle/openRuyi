@@ -21,28 +21,28 @@
 %endif
 
 %global dotnet_major 10.0
-%global dotnet_minor 102
+%global dotnet_minor 103
 %global dotnet_is_latest 1
 
 # Note: upstream can produce releases with a different tag than the SDK version
-%global upstream_tag v%{dotnet_major}.%{dotnet_minor}-sb1
-%global upstream_tag_without_v %{dotnet_major}.%{dotnet_minor}-sb1
+%global upstream_tag v%{dotnet_major}.%{dotnet_minor}
+%global upstream_tag_without_v %{dotnet_major}.%{dotnet_minor}
 
 # From 'release.json'. Needed for source-only builds.
 # Intentionally does not feed `--release-manifest` or set `-p:officialBuildId=...`,
 # So we don't set 'officialBuildId', as it breaks produced builds re-bootstrapping on RISC-V.
 # Triage this if you need 'officialBuildId' in the future.
 %global dotnet_sourceRepository https://github.com/dotnet/dotnet.git
-%global dotnet_sourceVersion 1def04f336cc452f7633f2ef1f157669c37c283a
-# %global dotnet_officialBuildId 20260105.8
+%global dotnet_sourceVersion c2435c3e0f46de784341ac3ed62863ce77e117b4
+# %global dotnet_officialBuildId 20260125.3
 
 %{!?runtime_id:%global runtime_id linux-%{runtime_arch}}
 %global dotnet_version %{dotnet_major}.%{dotnet_minor}
-%global hostfxr_version 10.0.2
-%global runtime_version 10.0.2
-%global aspnetcore_runtime_version 10.0.2
+%global hostfxr_version 10.0.3
+%global runtime_version 10.0.3
+%global aspnetcore_runtime_version 10.0.3
 %global templates_version %{aspnetcore_runtime_version}
-%global sdk_version 10.0.102
+%global sdk_version 10.0.103
 %global sdk_feature_band_version %(echo %{sdk_version} | cut -d '-' -f 1 | sed -e 's|[[:digit:]][[:digit:]]$|00|')
 
 %global use_bundled_brotli 0
