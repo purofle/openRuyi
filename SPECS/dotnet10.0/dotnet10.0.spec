@@ -420,8 +420,6 @@ rm -rf .dotnet
 mkdir -p prereqs/packages/archive
 ln -s %{_libdir}/dotnet/source-built-artifacts/Private.SourceBuilt.Artifacts.*.tar.gz prereqs/packages/archive/
 
-%autosetup
-
 %if ! %{use_bundled_brotli}
 rm -r src/runtime/src/native/external/brotli/
 %endif
