@@ -3,6 +3,7 @@
 # SPDX-FileContributor: Zheng Junjie <zhengjunjie@iscas.ac.cn>
 # SPDX-FileContributor: yyjeqhc <1772413353@qq.com>
 # SPDX-FileContributor: misaka00251 <liuxin@iscas.ac.cn>
+# SPDX-FileContributor: purofle <yuguo.or@isrc.iscas.ac.cn>
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
@@ -36,6 +37,7 @@ BuildOption(conf):  -DgRPC_BENCHMARK_PROVIDER=none
 BuildOption(conf):  -DgRPC_BENCHMARK_PROVIDER=OFF
 BuildOption(conf):  -DgRPC_BUILD_TESTS=OFF
 BuildOption(conf):  -DgRPC_DOWNLOAD_ARCHIVES:BOOL=OFF
+BuildOption(conf):  -DgRPC_BUILD_GRPC_PYTHON_PLUGIN=ON
 
 BuildRequires:  abseil-cpp-devel
 BuildRequires:  cmake
@@ -47,10 +49,24 @@ BuildRequires:  pkgconfig(openssl)
 BuildRequires:  pkgconfig(protobuf)
 BuildRequires:  pkgconfig(re2)
 BuildRequires:  pkgconfig(zlib)
+BuildRequires:  pkgconfig(python)
+BuildRequires:  python3dist(pip)
+BuildRequires:  python3dist(wheel)
+BuildRequires:  python3dist(cython)
+BuildRequires:  python3dist(setuptools)
 
 %description
 gRPC is a modern, open source, high-performance Remote Procedure Call (RPC)
 framework that can run in any environment.
+
+%package      -n python-grpcio
+Summary:        Python bindings for gRPC
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Provides:       python3-grpcio
+%python_provide python3-grpcio
+
+%description -n python-grpcio
+Python language bindings for gRPC (HTTP/2-based RPC framework).
 
 %package        devel
 Summary:        Development files for gRPC
@@ -66,9 +82,20 @@ develop applications that use the gRPC framework.
 find . -type f -regex ".*\.py\|.*\.sh" -exec sed -i -e 's|/usr/bin/env python.*|/usr/bin/python3|' -e 's|/usr/bin/python.*|/usr/bin/python3|' {} +
 rm -Rf third_party/abseil-cpp/
 
+%build -a
+export GRPC_PYTHON_BUILD_WITH_CYTHON='True'
+export GRPC_PYTHON_BUILD_SYSTEM_OPENSSL='True'
+export GRPC_PYTHON_BUILD_SYSTEM_ZLIB='True'
+export GRPC_PYTHON_BUILD_SYSTEM_CARES='True'
+export GRPC_PYTHON_BUILD_SYSTEM_RE2='True'
+export GRPC_PYTHON_BUILD_SYSTEM_ABSL='True'
+%pyproject_wheel
+
 %install -a
 rm -Rf %{buildroot}%{_datadir}/grpc/*.pem
 %fdupes %{buildroot}%{_prefix}
+%pyproject_install
+%pyproject_save_files grpc
 
 %files
 %license LICENSE
@@ -77,6 +104,9 @@ rm -Rf %{buildroot}%{_datadir}/grpc/*.pem
 %{_libdir}/libgrpc*.so.*
 %{_libdir}/libutf8_range_lib.so.*
 %{_libdir}/libupb*.so.*
+
+%files -n python-grpcio -f %{pyproject_files}
+%license LICENSE
 
 %files devel
 %{_bindir}/*
