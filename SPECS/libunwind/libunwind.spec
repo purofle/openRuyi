@@ -15,11 +15,13 @@ URL:            https://www.nongnu.org/libunwind/
 VCS:            git:https://github.com/libunwind/libunwind
 #!RemoteAsset
 Source:         https://github.com/libunwind/libunwind/archive/refs/tags/v%{version}.tar.gz
+Patch0000:      0001-Fix-bad-prototype-for-malloc-in-test.patch
+# This patch is from fedora.
+Patch3000:      3000-libunwind-no-dl-iterate-phdr.patch
 BuildSystem:    autotools
 
 BuildOption(conf):  --enable-shared
 BuildOption(conf):  --disable-static
-BuildOption(conf):  --disable-tests
 BuildOption(conf):  --disable-documentation
 
 BuildRequires:  automake
@@ -42,6 +44,10 @@ needed for developing applications that use libunwind.
 
 %conf -p
 autoreconf -fiv
+
+%install -a
+# Remove test files.
+rm -rf %{buildroot}%{_libexecdir}
 
 %files
 %license COPYING
