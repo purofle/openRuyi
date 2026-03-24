@@ -29,8 +29,8 @@ jobs:
         mkdir -p ~/.config/osc
         cat > ~/.config/osc/oscrc <<EOF
         [general]
-        apiurl = https://pickaxe.oerv.ac.cn
-        [https://pickaxe.oerv.ac.cn]
+        apiurl = https://build.openruyi.cn
+        [https://build.openruyi.cn]
         pass = ${{ secrets.BOT }}
         user = a-bot
         credentials_mgr_class=osc.credentials.PlaintextConfigFileCredentialsManager
