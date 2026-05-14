@@ -87,7 +87,6 @@ subpackage instead.
 
 %package        server
 Summary:        Instrumentation System Server
-BuildRequires:  pkgconfig(nss)
 %if %{with avahi}
 BuildRequires:  avahi-devel
 %endif
