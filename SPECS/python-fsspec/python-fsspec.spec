@@ -7,6 +7,7 @@
 %global srcname fsspec
 
 Name:           python-%{srcname}
+# NOTE: Please check compatibility of python-datasets when updating.
 Version:        2026.4.0
 Release:        %autorelease
 Summary:        File-system specification for Python
