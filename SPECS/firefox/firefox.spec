@@ -4,6 +4,7 @@
 #
 # SPDX-License-Identifier: MulanPSL-2.0
 
+# TODO: Maybe we need to remove this for licensing reasons
 %bcond fdk_aac 0
 
 # TODO: Official branding is tricky
@@ -11,221 +12,221 @@
 %bcond official_branding 0
 
 Name:           firefox
-Version:        151.0.1
+Version:        152.0
 Release:        %autorelease
 Summary:        Free web browser backed by Mozilla
 License:        MPL-2.0
 URL:            https://www.firefox.com
 # https://bugzilla.mozilla.org/show_bug.cgi?id=1863519
 VCS:            git:https://github.com/mozilla-firefox/firefox
-#!RemoteAsset:  sha256:a80ae34238cbf83a507274bc25d215ccac00934ddf26190b02a34fdce60584c0
+#!RemoteAsset:  sha256:5e5f9acb550d065a43934e0fcd11ed3ec22f7266fc9ad63df757406b432a5127
 Source0:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/source/%{name}-%{version}.source.tar.xz
 # We need the language packs
-#!RemoteAsset:  sha256:66973f1bf9ca95b172de1546fbff10d41dd7e61b37143474f29565bd35716371
+#!RemoteAsset:  sha256:1553e27e650e3a9fa16c5d370f1c1a67e7caf79662e42e9316508edf9d0edc89
 Source1:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ach.xpi
-#!RemoteAsset:  sha256:1ff9a8a7adb0e5f41ebe96bc0d770aad4045fdd6be8ff47beb42b916e0097254
+#!RemoteAsset:  sha256:a8fac5273d7b4d35ec0076479e339ac27d302db72bee2139060bade10ca32030
 Source2:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/af.xpi
-#!RemoteAsset:  sha256:0f58d76567446ab4873aa4d1a7c22c48d4c731ffb4147abfcb5f6997fa93dcf4
+#!RemoteAsset:  sha256:c90300812565b8de07fc6786cc3872fb081f5a23ad061517459d6b895698368a
 Source3:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/an.xpi
-#!RemoteAsset:  sha256:2df5cb2ca504148216eb6374a9c115e5005c5c1dbb01e09794f73cf122562f9a
+#!RemoteAsset:  sha256:8a8b35946ef70e372ac23d1856c43a5f02228d0f4a4a2cb56c131dc2e99a6c59
 Source4:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ar.xpi
-#!RemoteAsset:  sha256:11fe6559b99b8033babde9b923467e9188ee8c7be11a4ab666eb35e822a8bc80
+#!RemoteAsset:  sha256:c9069c3ccc695c6a7d100b2a3bb7fff1b0684442c99e47c9fcc846421f74b293
 Source5:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ast.xpi
-#!RemoteAsset:  sha256:1d8090f4a415365e8da14da102ee1ee1c53841ffa45eb79b5523f59ec18234fc
+#!RemoteAsset:  sha256:dce2963a77cf4c8c1d77cde24d07e3e5f23e8c2f66bdb91287138f2b95d75dc3
 Source6:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/az.xpi
-#!RemoteAsset:  sha256:f8971202e653f9be33d8c17bad6bb9f34f88bf4d3eff666ccc25267e46619a54
+#!RemoteAsset:  sha256:7f713e0ad7ad5567a2c862e5df30e7f86ad8e23e16cef3588fa5ee3e6750fc06
 Source7:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/be.xpi
-#!RemoteAsset:  sha256:ee712030f97759436eca7e60861758246ed1bc1f0a15183c189ec3086b78db65
+#!RemoteAsset:  sha256:152671c9498c57f30b2662f7b04c0419b7d547abec784a2b7da9b47af91a42cc
 Source8:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/bg.xpi
-#!RemoteAsset:  sha256:6d5be91493bbfaaee978996acbd6de9b872f0fb96942b935bf8d02182863d6e3
+#!RemoteAsset:  sha256:49001d4b8c97bcfd0407debf21f67905e5083df967e88c25e8fbc5fa1c99e28a
 Source9:        https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/bn.xpi
-#!RemoteAsset:  sha256:9d991064374708b51bd18eb39e3d76562efbdd095f4b39c6450903cf9a0ad350
+#!RemoteAsset:  sha256:4c39394f267c8f8901906d1eb5aced353f544d90de3dc92341a267f107a4df4d
 Source10:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/br.xpi
-#!RemoteAsset:  sha256:788f3986d55f21f774a07761c15d99dcf942b3d5ac2bf034dea6d8342080bef2
+#!RemoteAsset:  sha256:970f0c0085d91c56846b156bb6f40979e7031d7b9d6bb78894a3379ab1423fd9
 Source11:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/bs.xpi
-#!RemoteAsset:  sha256:c5a938a6335c81154d251ea922a06b7bd41d64727305ef76a7a800b100495183
+#!RemoteAsset:  sha256:fda5773dc5e16bfe9a794bb4735136543cbb3c9604520c349e876fc14db6c70a
 Source12:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ca-valencia.xpi
-#!RemoteAsset:  sha256:dfe102323dd7df3db10e70945c1ee6efcd12bb0b539cfcda076163fb169b37c2
+#!RemoteAsset:  sha256:84688b0be419674035858f9c9d45aaf248fb0c075e354eb86b89b10712a66755
 Source13:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ca.xpi
-#!RemoteAsset:  sha256:25aef56bf5aad7078a987472bdbc185ed356a60bcabbf1af274dc03baed98982
+#!RemoteAsset:  sha256:ca2ca18ac9a47b48676bd1b602aef9913615d1d5e3cadec20c6a547a8e6c7859
 Source14:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/cak.xpi
-#!RemoteAsset:  sha256:d5e9ce629381dccf343bd7d9c8f0eb147eab236ccbabef9b8a1d99298ec84e3c
+#!RemoteAsset:  sha256:b471fc12d4c2c7335a30d6badc04be4c806cf49fa565f04a710d0b70610955a9
 Source15:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/cs.xpi
-#!RemoteAsset:  sha256:460dfb45c439319cfd981a9cf50d55cf9769c31ee16d3adc9954e541148d7736
+#!RemoteAsset:  sha256:527102bfa34624d5939d9dde68f70f8137cdc232b6a5775f6c92193ddeb27461
 Source16:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/cy.xpi
-#!RemoteAsset:  sha256:fbaf6632826ba62b05297460f01c2e82920763c14d6c282c6bdfb7c32dcb113c
+#!RemoteAsset:  sha256:e47a2a26a1db4a239f53d4a90d2236d35ee805d1aec763443e07b9ef03973be1
 Source17:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/da.xpi
-#!RemoteAsset:  sha256:79b922a528fd874d60d83ecec37dff00a1e1081fb3fa7e5e489e70bd86745567
+#!RemoteAsset:  sha256:ed8eb0073264f9f8a2f65341aa0c6c2a5ba31271deba97f55271f3ffa9a987ac
 Source18:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/de.xpi
-#!RemoteAsset:  sha256:6efda4d8ce01c955aa61253c5d6c6a87cfab689b6286cceaf2a6de03562bbb7e
+#!RemoteAsset:  sha256:fb29ef9bd5fd07614fe8416b04966f30525ebdd765a994bccff6fe9118c63112
 Source19:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/dsb.xpi
-#!RemoteAsset:  sha256:1d863e82a8878e5196bbc13866abaa8586cb6b8036ed3161fece9768a4552647
+#!RemoteAsset:  sha256:e60d348cfcbcecd1b8ae4382c59b8f9de6ab3f684da1ff915b3b1eb493c3ff08
 Source20:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/el.xpi
-#!RemoteAsset:  sha256:caccc98302ca6ff6bbdc26efe5e65297c13572869dfb7b1c5a69a41f8c8d9d2d
+#!RemoteAsset:  sha256:9465f53a374c88d7f9b7c6be462bcf842ff66feabd623bf238efb8ab991cec6d
 Source21:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/en-CA.xpi
-#!RemoteAsset:  sha256:4dec3e12c14e5b988816cb67a6d7b3dde306a5cce7d12ce20ebc60a154edfd1e
+#!RemoteAsset:  sha256:8016bfe1053b58c47bc65b637ef73e10ae7653cb891ec5129de4636822fefd40
 Source22:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/en-GB.xpi
-#!RemoteAsset:  sha256:6497590bfde1618e349ee4e93d219ab3e03c3669075b204cb30c6b8df8c62be3
+#!RemoteAsset:  sha256:9f019162e02c070fc51465538b44bb56788403912b0b9e040cc1a5aa8522e7f1
 Source23:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/en-US.xpi
-#!RemoteAsset:  sha256:eae0e9c330d56b95c27f597e686b49240177fd77563a3bd8a3198b3460be88fc
+#!RemoteAsset:  sha256:4fb3c5b35a6cf10a12c2d58f43f86c4bacc2daa07bf70018226f265d25e561b8
 Source24:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/eo.xpi
-#!RemoteAsset:  sha256:830e57aa812f573a3a45b4772dcaf839479b41c8fb2c5fdbd884db3a4682114a
+#!RemoteAsset:  sha256:6dbeeb1aacc85a1a11328beef91658df8b55391630fdebd096ba08951f9655d9
 Source25:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/es-AR.xpi
-#!RemoteAsset:  sha256:e39077f5d57d7053878790e4236fe220d8101743d9f00a603bfab6513afb8149
+#!RemoteAsset:  sha256:40c64d16d6bc5f7c527f3d03e78af3dcab6fd189ee748e9cdaf81d65a6eea803
 Source26:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/es-CL.xpi
-#!RemoteAsset:  sha256:ed36e9ea33d8765b753f47fef9588d711e842fb5ff840531c3a66d5bfbfc1b02
+#!RemoteAsset:  sha256:567035738497d40d8e7ee8515f4cd08eb274b7fd0be820e955b97792bb339a96
 Source27:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/es-ES.xpi
-#!RemoteAsset:  sha256:a1a7802d46dbd3ba42f14fa4bda657f24675cda7ad4f0f975391cbfc69bf8069
+#!RemoteAsset:  sha256:aa898c02298ac36f950967f34a8310b421fbec0242b195148e8738aa9829eef1
 Source28:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/es-MX.xpi
-#!RemoteAsset:  sha256:6c533ced3685f8bc46ca286386b9032f7dc894d74f191646437e7326eb67f697
+#!RemoteAsset:  sha256:63a53848cc7f4f8b3abe5491137713c03ea7518f09d014b3a241312e5ea3d78f
 Source29:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/et.xpi
-#!RemoteAsset:  sha256:4dca40ba448cf1dc4f2e75e277848cdcc26e6305fda444cedf77428d15cdc2a8
+#!RemoteAsset:  sha256:f29bbc24a0f4cdc4bcb7598886d0d7a24fc0d36677c781419297e727b8c7055f
 Source30:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/eu.xpi
-#!RemoteAsset:  sha256:6a38979a7e54260888ee291d0d55ee9fe85a2b3992074942008932b099dd6281
+#!RemoteAsset:  sha256:5c097c45c0c7fc82cacc45bea2e90562a89aaf068e86682ce65b27a3c0aef1ae
 Source31:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/fa.xpi
-#!RemoteAsset:  sha256:95ebbc560af7d3d91c768a27df763a010d18261404b52c5727e18e371faeac3a
+#!RemoteAsset:  sha256:81b28e0eb15b7fa6df3b8dedbdb0fbb7c19bb232962bd14da6f7c5bb7e6bd9d0
 Source32:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ff.xpi
-#!RemoteAsset:  sha256:0e1b0ce1e51ec1d4df6cb09e66cc882bb98da1005b2f5bbf0a02105325323bf6
+#!RemoteAsset:  sha256:8434e4852141e684f525774f53d3ec5c4e7e0db7cbf4465f0938296766e265e7
 Source33:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/fi.xpi
-#!RemoteAsset:  sha256:3252258e080cdfccf248187850dc520988cdbb5c5af6d08c7b7590cb77f15c67
+#!RemoteAsset:  sha256:f0fb3c81dc499da0044932f72e25efc57d5b6c567d8a713d86bb0a446569f1cc
 Source34:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/fr.xpi
-#!RemoteAsset:  sha256:e7128a0258c1007a16e9d0333d444fa5b4aff2069b50bff3e99404b93152e473
+#!RemoteAsset:  sha256:d27ec7cf58bfad7dd0a7fed71cd9372195ddd3fd225cb9ce78b22969863caeeb
 Source35:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/fur.xpi
-#!RemoteAsset:  sha256:7e8a7ad4c4edd57bb5a21f469fa20564445ce8e547b56d1ea42a6e6a5e8f0db9
+#!RemoteAsset:  sha256:642a24d81f5f230b8a33e2dd4c5868fe8968ea53a23d01a5582157ff6e09d209
 Source36:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/fy-NL.xpi
-#!RemoteAsset:  sha256:ec236b4b759f243d01b17b1596c31f9a2cd44cf537e4d1a84211b032f3c4d9d6
+#!RemoteAsset:  sha256:86e147bc132f2cb335c200df2e36f0d4dce621001a66eb8a470489261d939c71
 Source37:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ga-IE.xpi
-#!RemoteAsset:  sha256:ea1063c8bf067cc39d53ccb250f4865325f597abf8c48125cf463df0ec8b9459
+#!RemoteAsset:  sha256:dac40db0ebdef1554b69d7bc7ccdfd2985240132b88eec523ee8277eec57bd9b
 Source38:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/gd.xpi
-#!RemoteAsset:  sha256:c7d1366613cb3255e72202ca0592631d6ff2df11eac5b744a4211a5fe9bf6d36
+#!RemoteAsset:  sha256:9ea46ade6669abfe4af0c8b302f6509f6e5f642aef699c30360504f084d039c4
 Source39:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/gl.xpi
-#!RemoteAsset:  sha256:ca34edae1f8ee76d729d240a00b1690433823d117a504ff2253bc2f4e5317c9d
+#!RemoteAsset:  sha256:dad0d3d5056e92a00193affa57013498cc6d2ffb2189f4472c8fa9b1807ce47a
 Source40:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/gn.xpi
-#!RemoteAsset:  sha256:0c7b92ba1a2a4efdd76a7726977d5bb37acd0c60eeb5d367fd6a5bd4ac16a874
+#!RemoteAsset:  sha256:4cf0443151a98c7a9eb62f92fc7c5305d17eeff9d8331a6aff3560ef14e44bfa
 Source41:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/gu-IN.xpi
-#!RemoteAsset:  sha256:03c5dc7938eaff5d277b7870cd26f25b8329ba001612e0a4fc2ff8456f1fd79d
+#!RemoteAsset:  sha256:d7420f19e36f16fca6e645713849c21fe56408c7b118c87dc98b861810896132
 Source42:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/he.xpi
-#!RemoteAsset:  sha256:15922e4400b7574156269cf3866c120818e29e12bb2346506485ebde9cd53167
+#!RemoteAsset:  sha256:5d987efcb3d6d237f48f95955fe0dfd2650815e00e498dcd430906e64c67b3f0
 Source43:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/hi-IN.xpi
-#!RemoteAsset:  sha256:7ec003fff509f89424b03fc3f70776cf8082bc6ac5cec92eb888ee66a6397c29
+#!RemoteAsset:  sha256:24e8124570e67dab67063127d525b58c7fda24edf13df57fb708f44f89526cdc
 Source44:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/hr.xpi
-#!RemoteAsset:  sha256:e36f845e4efe024da8db9399fbed777c506bbe96a10d8affad499aa0cb5f7b4d
+#!RemoteAsset:  sha256:65a7d7fffb2dd2646cc3dcea8a56969ded01b8332376af4bc77a23a06b9897e0
 Source45:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/hsb.xpi
-#!RemoteAsset:  sha256:794b77676b2c43ea0c36d8dce1095d8ac37266441ed8815e4a4bfbf91c02de38
+#!RemoteAsset:  sha256:3f22b974eb53f1988e5e071a82e94bdc5e7c31968302939d75aa0e5c920fc3c0
 Source46:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/hu.xpi
-#!RemoteAsset:  sha256:4e35b4e45abda9cabf364971496ac30c3eeb17c76851d8f8e6c7dbda27cacadf
+#!RemoteAsset:  sha256:74367199ce1cbcc60f07a8d00430b4e664a05a1c2e9e595af39c151b1abec278
 Source47:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/hy-AM.xpi
-#!RemoteAsset:  sha256:5a3316047b9d438c4b5fb0650d2cc9ee118f855474e988eea0cee86144fb2b11
+#!RemoteAsset:  sha256:9f3c1e3749f8071eaf43cc681d7044593310ba2da8a79197878d732e436afdaa
 Source48:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ia.xpi
-#!RemoteAsset:  sha256:89dee4e368224f2a943c680f03b9cc413be75f596a0d7a676c63e01f6ce62704
+#!RemoteAsset:  sha256:9ac1ab82c1893c83844559a633bb2001a2e91aa429132544ef97957ebd6ade1d
 Source49:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/id.xpi
-#!RemoteAsset:  sha256:c2408d11c109de20453a22e6603202b6df4aa54e7ea4f58ebffae60968edfa93
+#!RemoteAsset:  sha256:4390f2c734bab38c1b9f803d99c6f2e275db8b22fedd12b18cd5565315cae62d
 Source50:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/is.xpi
-#!RemoteAsset:  sha256:cacb268bac41c7116f57a695612d6f5edb1906cc4394f68888db64ff1a727e5d
+#!RemoteAsset:  sha256:d4447588ed985a1188409d187a61d1768d236a30ee032ad63e732f8f17195b41
 Source51:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/it.xpi
-#!RemoteAsset:  sha256:847f5857e6e7e72d352dfda02853ccec82fd252ebfd0529659859d9bbb6ced23
+#!RemoteAsset:  sha256:7ad7ca34e78a909125eaf397275c251b23bbb5441a75ece8a445c47b9879379e
 Source52:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ja.xpi
-#!RemoteAsset:  sha256:cb3d509a6386112a71ca8ba6a5748a4c9a4e3d6aca284b39f483889648774385
+#!RemoteAsset:  sha256:e07d0b4272a1993f34b08787e6ccb7603c0ec4b89b21e1a8fdac54962b28ddbe
 Source53:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ka.xpi
-#!RemoteAsset:  sha256:9b51de2b015da5af4adceff01490dc83a158e64626d219a9a527d1741d1373e6
+#!RemoteAsset:  sha256:47acc3d7f7d60548d16a262d9f8b494d7227630ce02d70c929dc5164dc997bbf
 Source54:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/kab.xpi
-#!RemoteAsset:  sha256:532675c7abc5833a7e0f4a1f08fdaa191a357b37bf5694c20879ea017750646d
+#!RemoteAsset:  sha256:b386dc7bcfaad0f662f6b7e300beec8ff650926be6db782f98cd8b8f33eb06a3
 Source55:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/kk.xpi
-#!RemoteAsset:  sha256:ce9f3200102ee6d4a567999af65f34767d11d6de20a2f63633f1ec9069893132
+#!RemoteAsset:  sha256:d5ff2c119e223dccf4a9ce5300d9c626b6266e563f0d9f17554357c82acc890c
 Source56:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/km.xpi
-#!RemoteAsset:  sha256:0d96562fbe4a7033387f3819e77713c82e7e00296a09d6d971b4cd88ec76a0a8
+#!RemoteAsset:  sha256:60a87ee1ef45d8a0051b3e5f013b0e70fa39ecd9945a547a0c32fe18b65b4fb6
 Source57:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/kn.xpi
-#!RemoteAsset:  sha256:376a75fa4992b0fbd222af1f0d4379551bdf099a56ff7df54681bc15c1146873
+#!RemoteAsset:  sha256:d53d1f36883fcc005f638e4275b4542e901507245a19a7061203b8c85d25904c
 Source58:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ko.xpi
-#!RemoteAsset:  sha256:9d64e8244b5acf43248429881793ed50f6b666765a73099b8635e5eefecae087
+#!RemoteAsset:  sha256:ef0177f05b05cbacac75a388929783716a361607b7b93a9f163808c5ded0fe64
 Source59:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/lij.xpi
-#!RemoteAsset:  sha256:759d1809a88920b0203e5d3f0000235b0f63c5758946e1737d6e49be6122998e
+#!RemoteAsset:  sha256:159d0705c7398c1defd64c255c80dd04b2c32233f9641eb597b689a154b89876
 Source60:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/lt.xpi
-#!RemoteAsset:  sha256:4dce8ce5f1f708788ccd23f75220ba631ef013edb6ff5ec15fa2ea3a5db0ccb6
+#!RemoteAsset:  sha256:ddef1c117ff8bc23e97aeeb68a5194d0cd8d8df56a0bae88b72983ca80f7825c
 Source61:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/lv.xpi
-#!RemoteAsset:  sha256:3d1bba718bf77169dd2ed7faf68183f69f8b1d96df3e60d7d3d9a4e8b15cd773
+#!RemoteAsset:  sha256:6bc4085d4c07da91eaed9f0ed53c6c8f840d8419a1140d06a1b9f03f40998f60
 Source62:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/mk.xpi
-#!RemoteAsset:  sha256:585ed52f67094db1263848472207af0075b9d03a3f4ad74878d953c1efd6b954
+#!RemoteAsset:  sha256:273066fb184371179471697b3a6ff911a1b20bf29458cb6f327fdc3b84b68aff
 Source63:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/mr.xpi
-#!RemoteAsset:  sha256:8ee068794dc9156f1c749ff1ca5120efc187ecb51e80799baf9f0b717cb89ffa
+#!RemoteAsset:  sha256:de1acd7727c3fd42f945917ddedadf90f7c456ee46a3337d3edf89c66ae7411d
 Source64:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ms.xpi
-#!RemoteAsset:  sha256:20ec6cdf18d8a58d0132f21e53434c7cd003f6cf5f38b383a6434df8c030bfd0
+#!RemoteAsset:  sha256:593c1759ce3975c9fce8f9d78feb455bddc532bcea5710a71a70cb250dc8913d
 Source65:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/my.xpi
-#!RemoteAsset:  sha256:0a7a5e43679cf6fae2924cf5e7527428752c872c8dbee80bccd724d4b94f37c0
+#!RemoteAsset:  sha256:49470365fb58207803d6f3b58d99148c5cdba0a02ce768d94469b3b664e3c8cf
 Source66:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/nb-NO.xpi
-#!RemoteAsset:  sha256:db9543180fa5a38296196eb812cc951e1c1f83cc82f2a478c6f2c6bbe30f2e64
+#!RemoteAsset:  sha256:c9c132bc5bb271c6e5d4cca89ed388b8c6618210bd2c1cd1b73bd3ba9ef62464
 Source67:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ne-NP.xpi
-#!RemoteAsset:  sha256:1e7882e62f5827c5879d70d473ec57798289f4f30adea96025ae1cf867a361a9
+#!RemoteAsset:  sha256:79892c7a14347f2a03f69d6b0ec03c461e034680331bde7fd07e5334d684d7d8
 Source68:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/nl.xpi
-#!RemoteAsset:  sha256:5492d0413dbe7fd74e61ff8ca47fe0f6359f7cbddb34ec6a4663fae9a9069adf
+#!RemoteAsset:  sha256:a243dae00fbb6d5b108d51f73cc126665579e321152eea02d58f7bb4a8a4c221
 Source69:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/nn-NO.xpi
-#!RemoteAsset:  sha256:2fde08dde07fdd472ede2d0efd580c4d4274ff05dc127f8aa874286635bff9d8
+#!RemoteAsset:  sha256:c616a5f3e03fb191432f84ac108e86b3cb5e550b5bd03bc0a17f6a90e20d9909
 Source70:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/oc.xpi
-#!RemoteAsset:  sha256:8b2c6b8ec1b0065415b1786473a5e798de4143d978db0126a97e8943a8b5ddd4
+#!RemoteAsset:  sha256:8f23060b783e2996e81eae44da3af80bda9a121f32c514b1b50136d0b1ef481a
 Source71:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/pa-IN.xpi
-#!RemoteAsset:  sha256:2d81d3784c86935767b54f8bc3dbc4add054721292ea5870982ed5921b0e1abb
+#!RemoteAsset:  sha256:18c612df35640fadb2c7c218bc7ce4e55d37655b994a9b5950974f58ab089ac3
 Source72:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/pl.xpi
-#!RemoteAsset:  sha256:ec279478a88a060023b03a88155ecdf2dbeffce43cfb82f4b9f59489311838e7
+#!RemoteAsset:  sha256:fbd80c82f1245a82ce32b4efbcb8c4fcafa309bfc9993caa62d7d7c5efd62078
 Source73:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/pt-BR.xpi
-#!RemoteAsset:  sha256:074d224d1c24d31371ca52b9c3900c5820b26787eef7692471e3beb9dcb9dfc4
+#!RemoteAsset:  sha256:15f32c3799ead50c651c62fb534d3e54ef56aea65bd9d4a37cde07989dec3206
 Source74:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/pt-PT.xpi
-#!RemoteAsset:  sha256:c6903e92f412512eac5c13963c5ca695890b03009080e0676a2b6e11a77a7edb
+#!RemoteAsset:  sha256:365405e518bb28bbfb51a31abf3b807463be2d383aa32f7aee42aa3ad1395c0f
 Source75:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/rm.xpi
-#!RemoteAsset:  sha256:4f4490c55a7be31a52a9e8eb0b730d94e46a35a9359daf13b41f0e38c3c49c0e
+#!RemoteAsset:  sha256:9d182be46a7edb419fa1995ffa4c09a0ddb82aba0e0cb00458fc58ee7e89f322
 Source76:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ro.xpi
-#!RemoteAsset:  sha256:7eec734a0bd1c9a633f9f9d7006595523c8e4fac17afb3d3094a1409c2b8dc36
+#!RemoteAsset:  sha256:0ac396a989d35d3bdec21054b17fb3318da95204f72ba8fd5a53556d0793f057
 Source77:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ru.xpi
-#!RemoteAsset:  sha256:71fe4c0b80e0726623a7e4ee5c4b9bc4145aa7043005c7bc2cfe8c4116488363
+#!RemoteAsset:  sha256:952dbb9c343843202615c0508c4c296459c6be5b5f6d2cac491f341b84e6242c
 Source78:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sat.xpi
-#!RemoteAsset:  sha256:79a4b93e16d9272512474c1f426cd72a683e5c412059cd0eb49751959c7ecc59
+#!RemoteAsset:  sha256:108968fc5553ead66c5e7fbbead15f7bc3615307ececc8b31a40acdb11d41135
 Source79:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sc.xpi
-#!RemoteAsset:  sha256:e660e3cea92459ecbcd686bf15cc480779ee43c983ddc22005d2aa229bed598a
+#!RemoteAsset:  sha256:c2fdd63a055fcab3d9ef159932b5ae72e983e6d409fd30e675e9ad6f636867f7
 Source80:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sco.xpi
-#!RemoteAsset:  sha256:5dcc6c83b3477e5ccf68f95d9c5ab9076d44c1daa59077a00f1a36f652e9713b
+#!RemoteAsset:  sha256:2994a968f78b98a3cefbf769b1d6ec9e1c0e08abbc2b94bd1bc37d36e82cbc5c
 Source81:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/si.xpi
-#!RemoteAsset:  sha256:a9db783043ac0f89ffb8d7d69494f4ccc70dde3a19944929a105d49130c043b3
+#!RemoteAsset:  sha256:117611ef1e70a46a8d7a6cdeb438300a4fc91edebb2a0f4011e9834b771a3b48
 Source82:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sk.xpi
-#!RemoteAsset:  sha256:2bce9eea801a5cf4f748961d466c92c0fe2f71d77f163118d0d1cdd3d8eb7fce
+#!RemoteAsset:  sha256:6876a53cad55668653e617cbd1b7fe0cf36408063a84f47abd99123dca8e2ae4
 Source83:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/skr.xpi
-#!RemoteAsset:  sha256:61f41cc390fb8c08a40ae2ebc6cc6125996420c409b2e290ab0dc0a7875c3028
+#!RemoteAsset:  sha256:f7244b9b5b69e0b7d53d21b9216f41deda1ca9fab85e1eb8b5b57ab5e03cab38
 Source84:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sl.xpi
-#!RemoteAsset:  sha256:b508b7ca86de2b252ff2e5650f3e4e78d82437727a7d34c1c8cdea26ebf72187
+#!RemoteAsset:  sha256:2b470e58ce2840717190f832f717894a1d3c6afc94b220e7f084f6c2bcc1a491
 Source85:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/son.xpi
-#!RemoteAsset:  sha256:26d824c8b76bd4441bde9a1beb7b86cd2380731875829f1a539d17170b25a1ee
+#!RemoteAsset:  sha256:7feb4e887083d1063178b607ba59c093f0f1ab20e660677661b14c325b4d8333
 Source86:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sq.xpi
-#!RemoteAsset:  sha256:e9f3c96df0553d802c464f2f5c840e198ff75cc7288442c70c2eab5ef438956a
+#!RemoteAsset:  sha256:aeee33c179bc78aafb29c446d1f7912c1e8856c475a205103055c0bddec4ea22
 Source87:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sr.xpi
-#!RemoteAsset:  sha256:4460eb1c35a81dbd613b52a82b22c4a0715b9eefa7fccb2174b72b914f6b48d9
+#!RemoteAsset:  sha256:036a1d05c4ef9c8e5484020a038d44b2d7da0a3a01b1fe09afc75c3ceefa6a04
 Source88:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/sv-SE.xpi
-#!RemoteAsset:  sha256:002ed365ccdb053a2c901d99ae461729410aab19cca0d0512aa4a7350c638a15
+#!RemoteAsset:  sha256:0b3cb68bd503c07f80518950e5f16c8d9c270643158657c0a6ad0d916624e816
 Source89:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/szl.xpi
-#!RemoteAsset:  sha256:c6712813501bc6f2d25c93bad408480a37e2c1eb1fa4023812865a62b7871a31
+#!RemoteAsset:  sha256:bf9eec14cf3751ba6270dcc60a3601b98577bfd3e0def321ce830bd115e195a3
 Source90:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ta.xpi
-#!RemoteAsset:  sha256:56ed4ffedecc85ef1bc9792eec8f580fb109ed25cd27639cf4343d23dbf433d4
+#!RemoteAsset:  sha256:e43e4fd9df6a07a83352480865352448b527655417c4a100f946453b0644975c
 Source91:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/te.xpi
-#!RemoteAsset:  sha256:00c509c78b9007afce2cdf5b3b1cabb60bd8ec216c13e35859759aba8a3f16ab
+#!RemoteAsset:  sha256:a2ff0c926d10bf878f3b96b81e5911591a8911cce601ad425b53301a52ba69cf
 Source92:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/tg.xpi
-#!RemoteAsset:  sha256:f43a530566f1450751d8c59e88982c1f0c71ba6d10f3ab08ab8307af28f0e7c0
+#!RemoteAsset:  sha256:9dccabc71ef1c810d50d302391104f2bfec1f16cb90d7f8791ef0e4b2c182bdc
 Source93:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/th.xpi
-#!RemoteAsset:  sha256:87f27ac261b43ad4034dbbeb7f1813fcddd9fdbd967a89c65152be9b7577e590
+#!RemoteAsset:  sha256:8489bac2e10220f6f09fc72cdafed84ef0c8b156e55fa34f3ab9c74d0b8e482b
 Source94:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/tl.xpi
-#!RemoteAsset:  sha256:fa331a884a4212581cfb6ac602e727a301cb2ea3a458ba4990c724c8ba6adc91
+#!RemoteAsset:  sha256:139927afa68bd4413276d2348ba82a13603e17d2173a9e2bd6c21e6237fca7a5
 Source95:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/tr.xpi
-#!RemoteAsset:  sha256:b621bfe4c0c21b3d21a9e7d9f0e40b206ec46954ac38a24d9cdf27e5b79f541f
+#!RemoteAsset:  sha256:da71f63d6565e7093a08759a511bf35b5698d7e8d16af9c7850299a7c893d110
 Source96:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/trs.xpi
-#!RemoteAsset:  sha256:957128700f33de5a3de7732c40bbe26a9e2e7048625a2f718e36e77ed9a5c896
+#!RemoteAsset:  sha256:d1951a7e79742d7a55e1031d238790b481f13bf513fb964e7aa2ba7c0a69b760
 Source97:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/uk.xpi
-#!RemoteAsset:  sha256:1c388b70c39210370c0fdf5dc2c35f4b283b503220d47e7ec31584d2e1c54d38
+#!RemoteAsset:  sha256:d2900b3591c5a28e1a8fab3e6bd89274a7a0a46272cc3c676baa8f72b4131b57
 Source98:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/ur.xpi
-#!RemoteAsset:  sha256:b6e30fbb7b1349318e818db7efa4a2d80cfe3b61f019a134eacb4e01cf2e6a4f
+#!RemoteAsset:  sha256:eff6d0ae3c0af1b60d256ed73cef120ec69a8aaa4458a27116881c920ef6a43f
 Source99:       https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/uz.xpi
-#!RemoteAsset:  sha256:4d60ddfcb24da8c38def88d0d20b2bb9f6bd0cd495e5d9fac3a8f0bef01aab88
+#!RemoteAsset:  sha256:fd1c4f260e8ffd474b66569e6ae92bf8c358211dc6bb3201e6bd33dc3a0ea1a7
 Source100:      https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/vi.xpi
-#!RemoteAsset:  sha256:1c80e01ba239f427c997965ecc00fdc1c2c601b43d42d2df4f1fdb164f8ecd31
+#!RemoteAsset:  sha256:339df27d9e176d8b7853231ed72c7296acaba8804fb8366a1b9862ccd921cfc0
 Source101:      https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/xh.xpi
-#!RemoteAsset:  sha256:c5183935ca04d54f981d60e40453e686ab30f893b603e424875606ebc63d38d1
+#!RemoteAsset:  sha256:cdf12d977f72be3b75d9720929f0abf8871adf62456ec130a0fb3b9d8a603495
 Source102:      https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/zh-CN.xpi
-#!RemoteAsset:  sha256:71b5989134f3d1ddc936def6c842aff400fedf4fbb02a4fc0b7453046f22b16a
+#!RemoteAsset:  sha256:e3babd41509fda1226a471ce9723ff3a4a41c377d1c78feac20738007bf841c4
 Source103:      https://ftp.mozilla.org/pub/firefox/releases/%{version}/linux-x86_64/xpi/zh-TW.xpi
 # What if firefox add another language? We should start at 200 - 251
 # https://www.chromium.org/developers/how-tos/api-keys/
@@ -299,17 +300,15 @@ BuildRequires:  desktop-file-utils
 Requires:       ffmpeg
 
 %patchlist
-# https://github.com/jamienicol/glslopt-rs/commit/eef3dada10f2cba865d35354c060ab9e37f045fb
-0001-Patch-glsl-optimizer-to-build-with-glibc-2.43.patch
-0002-add-GetSystemProxyDirect-to-libproxy-path.patch
+0001-add-GetSystemProxyDirect-to-libproxy-path.patch
 2000-riscv64-Use-long-tail-jump-for-xptcall-stubs.patch
 # https://bugzilla.mozilla.org/show_bug.cgi?id=1865601
 2001-riscv64-enable-gles-rendering.patch
 # https://phabricator.services.mozilla.com/D301784
 2002-riscv64-libyuv-add-RVV-sources-to-build.patch
 2003-blindly-set-rust-rva23-target-when-needed.patch
-2004-add-riscv64-support-for-crash-context.patch
-2005-enable-crashreporter-for-riscv64.patch
+# Add riscv64 JIT simulator include guard patch for 152
+2004-fix-riscv64-native-JIT-build-with-simulator-headers.patch
 
 %description
 Mozilla Firefox is a free, open-source web browser developed by
@@ -385,7 +384,6 @@ ac_add_options --without-wasm-sandboxed-libraries
 ac_add_options --with-google-safebrowsing-api-keyfile=%{SOURCE200}
 
 # Misc
-ac_add_options --enable-crashreporter
 ac_add_options --disable-bootstrap
 ac_add_options --disable-tests
 # Enable SpiderMonkey JS shell
@@ -393,12 +391,18 @@ ac_add_options --enable-js-shell
 EOF
 
 # Some optimization related - 251
-%ifarch x86_64
 echo "ac_add_options --enable-lto" >> .mozconfig
-%endif
 
 %if %{with official_branding}
 echo "ac_add_options --enable-official-branding" >> .mozconfig
+%endif
+
+# Firefox crash reporter
+%ifarch riscv64
+# TODO: Still need porting for C++ breakpad
+echo "ac_add_options --disable-crashreporter" >> .mozconfig
+%else
+echo "ac_add_options --enable-crashreporter" >> .mozconfig
 %endif
 
 # Some libraries we don't have but i think we should? - 251
@@ -566,6 +570,7 @@ fi
 %{_libdir}/firefox/v4l2test
 %endif
 %{_libdir}/firefox/vaapitest
+%{_libdir}/firefox/vulkantest
 %{_libdir}/firefox/*.so
 %{_datadir}/applications/firefox.desktop
 %{_datadir}/icons/hicolor/16x16/apps/firefox.png
