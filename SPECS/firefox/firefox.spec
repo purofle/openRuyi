@@ -309,6 +309,8 @@ Requires:       ffmpeg
 2003-blindly-set-rust-rva23-target-when-needed.patch
 # Add riscv64 JIT simulator include guard patch for 152
 2004-fix-riscv64-native-JIT-build-with-simulator-headers.patch
+2005-add-riscv64-support-for-crash-context.patch
+2006-enable-crashreporter-for-riscv64.patch
 
 %description
 Mozilla Firefox is a free, open-source web browser developed by
@@ -398,12 +400,7 @@ echo "ac_add_options --enable-official-branding" >> .mozconfig
 %endif
 
 # Firefox crash reporter
-%ifarch riscv64
-# TODO: Still need porting for C++ breakpad
-echo "ac_add_options --disable-crashreporter" >> .mozconfig
-%else
 echo "ac_add_options --enable-crashreporter" >> .mozconfig
-%endif
 
 # Some libraries we don't have but i think we should? - 251
 %if %{with fdk_aac}
@@ -550,10 +547,8 @@ fi
 %{_bindir}/firefox
 %{_libdir}/firefox/application.ini
 %{_libdir}/firefox/browser
-%ifnarch riscv64
 %{_libdir}/firefox/crashreporter
 %{_libdir}/firefox/crashhelper
-%endif
 %{_libdir}/firefox/defaults/pref/channel-prefs.js
 %{_libdir}/firefox/dependentlibs.list
 %{_libdir}/firefox/dictionaries
