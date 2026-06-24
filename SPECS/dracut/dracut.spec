@@ -6,12 +6,12 @@
 # SPDX-License-Identifier: MulanPSL-2.0
 
 Name:           dracut
-Version:        110
+Version:        111
 Release:        %autorelease
 Summary:        Library to create ISO 9660 disk images
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
 URL:            https://github.com/dracut-ng/dracut-ng
-#!RemoteAsset:  sha256:0d357853f8cf2371d89a8ebcbbb1fd2c1c85a79d8866925fd7385eaeb20a27dc
+#!RemoteAsset:  sha256:ca949190692e91611ef16ea3642c0f764f63948860f3f742524310728c991493
 Source:         %{url}/archive/refs/tags/%{version}.tar.gz
 BuildSystem:    autotools
 
@@ -139,6 +139,7 @@ rm -f %{buildroot}%{_mandir}/man?/*suse*
 %{_prefix}/lib/dracut/modules.d/11systemd-resolved
 %{_prefix}/lib/dracut/modules.d/11systemd-sysext
 %{_prefix}/lib/dracut/modules.d/11systemd-sysctl
+%{_prefix}/lib/dracut/modules.d/11systemd-sysusers-service
 %{_prefix}/lib/dracut/modules.d/11systemd-timedated
 %{_prefix}/lib/dracut/modules.d/11systemd-timesyncd
 %{_prefix}/lib/dracut/modules.d/11systemd-tmpfiles
@@ -169,6 +170,8 @@ rm -f %{buildroot}%{_mandir}/man?/*suse*
 %{_prefix}/lib/dracut/modules.d/70bluetooth
 %{_prefix}/lib/dracut/modules.d/70btrfs
 %{_prefix}/lib/dracut/modules.d/70crypt
+%{_prefix}/lib/dracut/modules.d/70crypt-lib
+%{_prefix}/lib/dracut/modules.d/70devicetree-firmware
 %{_prefix}/lib/dracut/modules.d/70dm
 %{_prefix}/lib/dracut/modules.d/70dmraid
 %{_prefix}/lib/dracut/modules.d/70dmsquash-live
@@ -193,6 +196,7 @@ rm -f %{buildroot}%{_mandir}/man?/*suse*
 %{_prefix}/lib/dracut/modules.d/70qemu
 %{_prefix}/lib/dracut/modules.d/70qemu-net
 %{_prefix}/lib/dracut/modules.d/70uefi-lib
+%{_prefix}/lib/dracut/modules.d/71overlayfs-crypt
 %{_prefix}/lib/dracut/modules.d/71systemd-cryptsetup
 %{_prefix}/lib/dracut/modules.d/73crypt-gpg
 %{_prefix}/lib/dracut/modules.d/73crypt-loop
