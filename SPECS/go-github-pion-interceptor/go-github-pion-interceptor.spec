@@ -8,17 +8,15 @@
 %define go_test_exclude %{go_import_path}
 
 Name:           go-github-pion-interceptor
-Version:        0.1.29
+Version:        0.1.51
 Release:        %autorelease
 Summary:        RTCP and RTCP processors for building real time communications
 License:        MIT
 URL:            https://github.com/pion/interceptor
-#!RemoteAsset:  sha256:02d977d87383c4330ce4e31fc3650d8acc8fa41112788b89aea8b6d80b3e8de5
+#!RemoteAsset:  sha256:a721be3f44d0ff9e258f0817e4bc3f03f3ace3fc45942622df185f8bbadff629
 Source0:        https://github.com/pion/interceptor/archive/v%{version}.tar.gz#/%{_name}-%{version}.tar.gz
 BuildArch:      noarch
 BuildSystem:    golangmodules
-
-Patch1:         2000-report-avoid-zero-packet-division.patch
 
 BuildRequires:  go
 BuildRequires:  go-rpm-macros
